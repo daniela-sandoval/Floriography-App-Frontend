@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends React.Component {
+  state = {
+    text: ""
+  }
 
-export default App;
+  handleChange = (event) => {
+    this.setState({
+      text: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    fetch("http://localhost:3000/analyze", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text: this.state.text
+      })
+    })
+  }
+
+
+  render() {
+    return (
+      <div>
+        <h1>TEST</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" onChange={this.handleChange}value={this.state.text} placeholder="enter a phrase!"/>
+          <input type="submit"/>
+        </form>
+      </div>
+    )
+  }
+}
