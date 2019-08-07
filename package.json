@@ -5,8 +5,12 @@
   "dependencies": {
     "@ibm-watson/tone-analyzer-nodejs": "^1.1.1",
     "react": "^16.8.6",
+    "react-browser-router": "^2.1.2",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
