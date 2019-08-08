@@ -7,3 +7,15 @@ export const fetchAdjs = () => {
     })
   }
 }
+
+export const addAdjList = (adjective) => {
+  return dispatch => {
+    dispatch({type: "ADD_TO_LIST", payload: adjective})
+  }
+}
+
+export const removeAdj = (list) => {
+  return dispatch => {
+    dispatch({type: "REMOVE_FROM_LIST", payload: list})
+  }
+}
