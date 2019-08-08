@@ -15,10 +15,12 @@ class Register extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.newUserFetch(this.state)
-  }
+  handleSubmit = async (event) => {
+  event.preventDefault()
+  await this.props.newUserFetch(this.state)
+  this.props.history.push("/flowerapp")
+
+}
 
   render () {
     return (

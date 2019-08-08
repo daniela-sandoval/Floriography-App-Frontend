@@ -14,9 +14,18 @@ class Login extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   this.props.userLoginFetch(this.state)
+  //   this.props.history.push("/flowerapp")
+  //
+  // }
+
+    handleSubmit = async (event) => {
     event.preventDefault()
-    this.props.userLoginFetch(this.state)
+    await this.props.userLoginFetch(this.state)
+    this.props.history.push("/flowerapp")
+
   }
 
 

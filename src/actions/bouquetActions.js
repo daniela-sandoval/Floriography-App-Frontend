@@ -11,5 +11,15 @@ export const makeInputBouquet = (userId, newBouquet) => {
           sentence: newBouquet.sentence
         })
       })
+      .then(resp => resp.json())
+      .then(data => {
+        if(data.id) {
+          dispatch({type: "ADD_TO_BOUQUET", payload: data})
+        }
+      })
   }
+}
+
+export const makeAdjBouquet = () => {
+  debugger
 }

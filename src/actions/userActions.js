@@ -14,7 +14,6 @@ export const userLoginFetch = userInfo => {
       .then(data => {
         if(data.token) {
           localStorage.token = data.token
-          // this.props.history.push("/flowerapp")
           dispatch({type: "LOGIN_USER", payload: data})
         }
       })
@@ -36,9 +35,9 @@ export const newUserFetch = userInfo => {
       })
       .then(resp => resp.json())
       .then(data => {
+        debugger
         if(data.token) {
           localStorage.token = data.token
-          // this.props.history.push("/flowerapp")
           dispatch({type: "LOGIN_USER", payload: data})
         }
       })

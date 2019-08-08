@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputForm from './inputForm'
+import AdjForm from './adjForm'
 
 class Profile extends Component {
   state = {
@@ -17,7 +18,10 @@ class Profile extends Component {
       <h1>{this.props.username}</h1>
       <button onClick={this.handleClick}>MAKE A BOUQUET</button>
       {this.state.makeFlower ?
-      <InputForm/>
+      <div>
+        <InputForm/>
+        <AdjForm/>
+      </div>
       :
       null
       }
