@@ -4,21 +4,22 @@ import Navbar from './navbar';
 import Profile from './profile'
 import Feed from './feed'
 import Garden from './garden'
-import Auth from './Auth'
+import { connect } from 'react-redux'
+import { getProfile } from '../actions/userActions'
 
 class FlowerApp extends Component {
 
   componentDidMount() {
-    fetch("http://localhost:3000/profile", {
-      headers: {
-      "Authorization": localStorage.token
-      }
-    })
-    .then(resp => resp.json())
-    .then(console.log)
+    if(!localStorage.token) {
+      debugger
+    this.props.history.push("/welcome")
+    } else {
+    this.props.getProfile()
+    }
   }
 
   render () {
+    console.log(this.props)
     return (
       <div>
         <Navbar/>
@@ -32,4 +33,15 @@ class FlowerApp extends Component {
   }
 }
 
-export default Auth(FlowerApp, localStorage)
+const mapStateToProps = state => {
+  return {
+    logIn: state.userReducer.signIn
+  }
+}
+
+const mapDispatchToProps = {
+  getProfile: getProfile
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlowerApp)

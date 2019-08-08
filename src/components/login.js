@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { userLoginFetch } from '../actions/userActions'
 
-export default class Logn extends Component {
+class Login extends Component {
   state = {
     username: "",
     password: ""
@@ -14,30 +16,14 @@ export default class Logn extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.makeLogin(this.state)
+    this.props.userLoginFetch(this.state)
   }
 
-  makeLogin = (user) => {
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(user)
-    })
-    .then(resp => resp.json())
-    .then(data => {
-      if(data.token) {
-        localStorage.token = data.token
-        this.props.history.push("/flowerapp")
-      }
-    })
-  }
 
   render () {
     return (
       <div>
+        <h1>LOGIN</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input onChange={this.handleChange} name="username" id="username" type="text" placeholder="username"/><br/>
@@ -49,3 +35,10 @@ export default class Logn extends Component {
     )
   }
 }
+
+
+const mapDispatchToProps = {
+  userLoginFetch: userLoginFetch
+}
+
+export default connect(null, mapDispatchToProps)(Login)
