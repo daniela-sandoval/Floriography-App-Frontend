@@ -5,23 +5,33 @@ import AdjForm from './adjForm'
 
 class Profile extends Component {
   state = {
-    makeFlower: false
+    adjective: false,
+    input: false,
+    random: false
   }
 
-  handleClick = () => {
-    this.setState({makeFlower: !this.state.makeFlower})
+  handleClick = event => {
+    this.setState({[event.target.id]: !this.state[event.target.id]})
+  }
+
+  handleRandom = () => {
+    debugger
   }
 
   render () {
     return (
       <div>
       <h1>{this.props.username}</h1>
-      <button onClick={this.handleClick}>MAKE A BOUQUET</button>
-      {this.state.makeFlower ?
-      <div>
-        <InputForm/>
+      <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button>
+      <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button>
+      <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button>
+      {this.state.adjective ?
         <AdjForm/>
-      </div>
+      :
+      null
+      }
+      {this.state.input ?
+        <InputForm/>
       :
       null
       }
