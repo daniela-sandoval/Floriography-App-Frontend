@@ -17,13 +17,14 @@ class inputForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.makeInputBouquet(this.props.userId, this.state)
+    this.props.submitClick(event)
   }
 
   render() {
     return (
     <div>
-      <p>pls type a sentence</p>
-      <form onSubmit={this.handleSubmit}>
+      <h4>pls type a sentence</h4>
+      <form id="input" onSubmit={this.handleSubmit}>
         <label htmlFor="title">Your Title: </label>
         <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="enter a phrase!"/><br/>
 

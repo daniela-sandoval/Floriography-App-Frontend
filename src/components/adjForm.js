@@ -14,10 +14,11 @@ class AdjForm extends Component {
     this.props.fetchAdjs()
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
     // add some logic if the title is empty...
     if(this.props.adjList.length === 5 ) {
       this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
+      this.props.submitClick(event)
     } else {
       alert("pls add more adjectives!")
     }
@@ -37,13 +38,13 @@ class AdjForm extends Component {
 
     return (
       <div>
-      <p>pls choose 5 adjectives</p>
+      <h4>pls choose 5 adjectives</h4>
         <label htmlFor="title">Your Title: </label>
         <input name="title" id="title" type="text" onChange={this.handleChange}/>
         <div>
           {makeAdjs()}
         </div>
-      <button onClick={this.handleClick}>SUBMIT</button>
+      <button id="adjective" onClick={this.handleClick}>SUBMIT</button>
       </div>
     )
   }
