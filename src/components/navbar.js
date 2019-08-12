@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logOutUser } from '../actions/userActions'
+import "../Stylesheets/navbar.scss";
 
 const Navbar = () => {
 

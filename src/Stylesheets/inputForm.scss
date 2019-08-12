@@ -1,0 +1,27 @@
+.modal-input {
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  top: 50px;
+  left: 0px;
+  .modal-content-input {
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    width: 50%;
+    padding: 30px;
+    .close-input {
+      zoom: 1.5;
+      color: black;
+      float: right;
+      &:hover {
+        color: cyan;
+        cursor: pointer;
+      }
+    }
+  }
+}

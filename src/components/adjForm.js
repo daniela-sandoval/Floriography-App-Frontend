@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeAdjBouquet } from '../actions/bouquetActions'
-import { fetchAdjs } from '../actions/adjActions'
+import { fetchAdjs, clearList } from '../actions/adjActions'
 import Adjective from './adjective'
+import "../Stylesheets/adjForm.scss"
 
 class AdjForm extends Component {
   state = {
@@ -30,23 +31,34 @@ class AdjForm extends Component {
     })
   }
 
+  handleClose = (event) => {
+    this.props.submitClick(event)
+    this.props.clearList()
+  }
+
   render() {
+    if(this.props.adjs[0]) {
+      const makeAdjs = () => {
+        return this.props.adjs.map(adj => <Adjective key={adj.id} {...adj}/>)
+      }
 
-    const makeAdjs = () => {
-      return this.props.adjs.map(adj => <Adjective key={adj.id} {...adj}/>)
-    }
-
-    return (
-      <div>
-      <h4>pls choose 5 adjectives</h4>
-        <label htmlFor="title">Your Title: </label>
-        <input name="title" id="title" type="text" onChange={this.handleChange}/>
-        <div>
-          {makeAdjs()}
+      return (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" id="adjective" onClick={this.handleClose}>&times;</span>
+            <h4>pls choose 5 adjectives</h4>
+              <label htmlFor="title">Your Title: </label>
+              <input name="title" id="title" type="text" onChange={this.handleChange}/>
+              <div className="adj-con">
+                {makeAdjs()}
+              </div>
+            <button id="adjective" onClick={this.handleClick}>SUBMIT</button>
+          </div>
         </div>
-      <button id="adjective" onClick={this.handleClick}>SUBMIT</button>
-      </div>
-    )
+      )
+    } else {
+      return null
+    }
   }
 }
 
@@ -62,7 +74,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   makeAdjBouquet: makeAdjBouquet,
-  fetchAdjs: fetchAdjs
+  fetchAdjs: fetchAdjs,
+  clearList: clearList
 }
 
 

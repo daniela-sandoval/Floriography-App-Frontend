@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
+  .nav-link {
+    text-decoration: none;
+    &:hover {
+      color: blue;
+    }
+  }
+}

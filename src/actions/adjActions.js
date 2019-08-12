@@ -19,3 +19,9 @@ export const removeAdj = (list) => {
     dispatch({type: "REMOVE_FROM_LIST", payload: list})
   }
 }
+
+export const clearList = () => {
+  return dispatch => {
+    dispatch({type: "CLEAR_LIST"})
+  }
+}

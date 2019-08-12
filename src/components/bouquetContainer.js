@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BouquetDiv from './bouquetDiv'
+import "../Stylesheets/bouquetContainer.scss"
 
 class BouquetContainer extends Component {
 
@@ -10,9 +11,11 @@ class BouquetContainer extends Component {
       return this.props.bouquets.map(bouquet => <BouquetDiv key={bouquet.id} {...bouquet}/>)
     }
     return (
-      <div>
-      <h4>HERE ARE ALL YOUR BOUQUETS: </h4>
-      {makeBouquets()}
+      <div className="bouquet-container">
+        <h4>YOUR BOUQUETS: </h4>
+        <div className="bouquet-box">
+          {makeBouquets()}
+        </div>
       </div>
     )
   }

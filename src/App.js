@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
-import './App.css';
+import './Stylesheets/App.css';
 import Welcome from './components/welcome'
 import FlowerApp from './components/flowerapp'
 

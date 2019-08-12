@@ -1,0 +1,28 @@
+.bouquet-div {
+  border: 3px solid black;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 10px;
+  box-shadow: 5px 7px grey;
+  .flower-con {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px;
+    padding: 10px;
+  }
+  .close-div {
+    zoom: 1.5;
+    color: black;
+    float: right;
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
+  header {
+    padding: 10px;
+  }
+  .prompt {
+    text-align: center;
+  }
+}

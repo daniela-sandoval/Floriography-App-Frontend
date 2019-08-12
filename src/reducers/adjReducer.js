@@ -11,6 +11,8 @@ export default function reducer(state = defaultState, action) {
       return {...state, adjList: [...state.adjList, action.payload]}
     case "REMOVE_FROM_LIST":
       return {...state, adjList: action.payload}
+      case "CLEAR_LIST":
+      return {...state, adjList: []}
     default:
     return state
   }

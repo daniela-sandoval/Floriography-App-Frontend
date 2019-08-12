@@ -1,0 +1,10 @@
+.Profile {
+  display: flex;
+  background: blue;
+  height: 100%;
+  .SideBar {
+    background: #da7e7e;
+    flex: 1;
+    padding: 3rem;
+  }
+}

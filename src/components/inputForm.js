@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeInputBouquet } from '../actions/bouquetActions'
+import "../Stylesheets/inputForm.scss"
 
 class inputForm extends Component {
   state = {
@@ -20,19 +21,26 @@ class inputForm extends Component {
     this.props.submitClick(event)
   }
 
+  handleClose = (event) => {
+    this.props.submitClick(event)
+  }
+
   render() {
     return (
-    <div>
-      <h4>pls type a sentence</h4>
-      <form id="input" onSubmit={this.handleSubmit}>
-        <label htmlFor="title">Your Title: </label>
-        <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="enter a phrase!"/><br/>
+    <div className="modal-input">
+      <div className="modal-content-input">
+        <span className="close-input" id="input" onClick={this.handleClose}>&times;</span>
+        <h4>pls type a sentence</h4>
+        <form id="input" onSubmit={this.handleSubmit}>
+          <label htmlFor="title">Your Title: </label>
+          <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="Title your bouquet!"/><br/>
 
-        <label htmlFor="sentence">Your Sentence: </label>
-        <input name="sentence" id="sentence" type="text" onChange={this.handleChange} value={this.state.sentence} placeholder="enter a phrase!"/>
+          <label htmlFor="sentence">Your Sentence: </label>
+          <input name="sentence" id="sentence" type="text" onChange={this.handleChange} value={this.state.sentence} placeholder="enter a phrase!"/>
 
-        <input type="submit"/>
-      </form>
+          <input type="submit"/>
+        </form>
+      </div>
     </div>
     )
   }

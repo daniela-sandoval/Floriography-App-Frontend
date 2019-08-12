@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addAdjList } from '../actions/adjActions'
 import { removeAdj } from '../actions/adjActions'
+import "../Stylesheets/adjective.scss"
 
 class Adjective extends Component {
   state = {
@@ -29,7 +30,11 @@ class Adjective extends Component {
   }
 
   render() {
-    return <div id={this.props.name} onClick={this.handleClick} style={ this.state.clicked ? {color: "red"} : null } >{this.props.name}</div>
+    return <div className="adj"
+      id={this.props.name}
+      onClick={this.handleClick}
+      style={ this.state.clicked ? {color: "red"} : null } >{this.props.name}
+    </div>
   }
 }
 
