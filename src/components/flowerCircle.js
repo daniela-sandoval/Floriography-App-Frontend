@@ -4,7 +4,9 @@ import "../Stylesheets/flowerCircle.scss"
 class FlowerCircle extends Component {
   render() {
     return (
-      <div className="flower-circle">{this.props.name}</div>
+      <div className="flower-circle">
+        <img className="flwr-img" src={this.props.img_url} alt='it broke'/>
+      </div>
     )
   }
 }

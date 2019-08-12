@@ -1,11 +1,16 @@
 .flower-circle {
-  border: 1px solid red;
+  // border: 1px solid red;
   border-radius: 50%;
   display: inline-block;
-  // background-clip: padding-box;
-  transition: 1s;
-  &:hover {
-    // filter: blur(1px);
-    background-color: blue;
+  overflow: hidden;
+  .flwr-img {
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    transition: 0.5s;
+    &:hover {
+      filter: blur(2px);
+      // background-color: blue;
+    }
   }
 }

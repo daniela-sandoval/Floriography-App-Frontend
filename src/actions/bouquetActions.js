@@ -38,6 +38,7 @@ export const makeAdjBouquet = (adjs, userId, title) => {
     .then(data => {
       if(data.id) {
         dispatch({type: "ADD_TO_BOUQUET", payload: data})
+        dispatch({type: "CLEAR_LIST"})
       }
     })
   }
