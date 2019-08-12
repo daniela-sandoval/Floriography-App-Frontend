@@ -1,16 +1,29 @@
-.flower-circle {
-  // border: 1px solid red;
-  border-radius: 50%;
-  display: inline-block;
-  overflow: hidden;
+// .flower-circle {
+//   // border: 1px solid red;
+//   border-radius: 50%;
+//   display: inline-block;
+//   overflow: hidden;
+// }
+
+.test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .flwr-img {
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
     height: 220px;
     width: 220px;
     transition: 0.5s;
     &:hover {
-      filter: blur(2px);
-      // background-color: blue;
+      filter: blur(4px) grayscale(3);
     }
+  }
+  .flwr-name {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
   }
 }

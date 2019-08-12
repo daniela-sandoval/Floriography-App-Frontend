@@ -9,7 +9,7 @@ class App extends React.Component {
 
   componentDidMount() {
     if(localStorage.token) {
-    this.props.history.push("/flowerapp")
+    this.props.history.push("/flowerapp/profile")
     }
   }
 

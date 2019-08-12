@@ -22,27 +22,31 @@ class Profile extends Component {
   }
 
   render () {
-    return (
-      <div className="Profile">
-        <div className="SideBar">
-          <h1>{this.props.username}</h1>
-          <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
-          <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
-          <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
-          {this.state.adjective ?
-            <AdjForm submitClick={this.handleClick}/>
-          :
-          null
-          }
-          {this.state.input ?
-            <InputForm submitClick={this.handleClick}/>
-          :
-          null
-          }
+    if(this.props.username) {
+      return (
+        <div className="Profile">
+          <div className="SideBar">
+            <h1>{this.props.username}</h1>
+            <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
+            <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
+            <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
+            {this.state.adjective ?
+              <AdjForm submitClick={this.handleClick}/>
+            :
+            null
+            }
+            {this.state.input ?
+              <InputForm submitClick={this.handleClick}/>
+            :
+            null
+            }
+          </div>
+        <BouquetContainer />
         </div>
-      <BouquetContainer />
-      </div>
-    )
+      )
+    } else {
+      return null
+    }
   }
 }
 

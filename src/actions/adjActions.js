@@ -25,3 +25,13 @@ export const clearList = () => {
     dispatch({type: "CLEAR_LIST"})
   }
 }
+
+export const fetchTones = () => {
+  return dispatch => {
+    return fetch("http://localhost:3000/tones")
+    .then(resp => resp.json())
+    .then(data => {
+      dispatch({type: "SET_TONES", payload: data})
+    })
+  }
+}
