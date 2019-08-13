@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import { deleteBouquet } from '../actions/bouquetActions'
 import { makeFav } from '../actions/favActions'
 
-class BouquetDiv extends Component {
+class FeedDiv extends Component {
   state = {
     prompt: false,
-    favorited: false,
-    delete: false
+    favorited: false
   }
 
   handleClick = () => {
@@ -26,10 +25,8 @@ class BouquetDiv extends Component {
     this.props.deleteBouquet(this.props.id, updatedBouquets)
   }
 
-  favClick = (bouquetId) => {
-    this.setState({favorited: true}, () => {
-      this.props.makeFav(this.props.currentId, bouquetId)
-    })
+  favClick = () => {
+    this.setState({favorited: true})
   }
 
   unfavClick = () => {
@@ -50,15 +47,15 @@ class BouquetDiv extends Component {
           </div>
           :
           <div>
-            <span onClick={this.handleClick} className="close-div">&times;</span>
+            {this.props.currentId === this.props.user.user_id ? <span onClick={this.handleClick} className="close-div">&times;</span> : null}
             <header>{this.props.name}</header>
-            <p>Made by: {this.props.username}</p>
+            <p>Made by: {this.props.user.user_name}</p>
             <div className="flower-con">
               {makeCircles()}
             </div>
             <footer>
               <button className="fav">
-                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
+                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
               </button>
             </footer>
           </div>
@@ -70,8 +67,6 @@ class BouquetDiv extends Component {
 
 const mapStateToProps = state => {
   return {
-    bouquets: state.bouquetReducer.userBouquets,
-    username: state.userReducer.username,
     currentId: state.userReducer.currentId
   }
 }
@@ -81,4 +76,4 @@ const mapDispatchToProps = {
   makeFav: makeFav
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BouquetDiv)
+export default connect(mapStateToProps, mapDispatchToProps)(FeedDiv)

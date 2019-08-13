@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { filterFlowers } from 'react'
+import { filterFlowers } from '../actions/flowerActions'
 import { connect } from 'react-redux'
 import "../Stylesheets/searchForm.scss"
 
@@ -10,21 +10,18 @@ class SearchForm extends Component {
 
   handleChange = (event) => {
     this.setState({search: event.target.value}, () => {
-        let array = []
-        this.props.flowers.map(flower => {
-        flower.name.split(" ").map(word => {
-          if (word.includes(this.state.search)) {
-            array.push(flower)
-          }
-      })
-      })
-      debugger
-      // let filtered = this.props.flowers.filter(flower => flower.name.includes(event.target.value))
+      let filtered = this.props.flowers.filter(flower => (
+        flower.name.toLowerCase().includes(this.state.search.toLowerCase())
+      ))
+      this.props.filterFlowers(filtered)
     })
   }
 
   handleClick = () => {
-    debugger
+    let filtered = this.props.flowers.filter(flower => (
+      flower.name.toLowerCase().includes(this.state.search.toLowerCase())
+    ))
+    this.props.filterFlowers(filtered)
   }
 
   render() {

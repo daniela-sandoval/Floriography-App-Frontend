@@ -1,16 +1,23 @@
 const defaultState = {
-  userBouquets: []
+  userBouquets: [],
+  allBouquets: [],
+  userFavs: []
 }
 
 export default function reducer(state = defaultState, action) {
 
   switch (action.type) {
     case "USER_BOUQUETS":
-      return { userBouquets: action.payload }
+      return { ...state, userBouquets: action.payload }
     case "ADD_TO_BOUQUET":
-      return { userBouquets: [action.payload, ...state.userBouquets] }
+      return { ...state, userBouquets: [action.payload, ...state.userBouquets] }
       case "UPDATE_BOUQUET":
-      return { userBouquets: action.payload }
+      return { ...state, userBouquets: action.payload }
+      case "SET_ALL_BOUQUETS":
+      return {...state, allBouquets: action.payload}
+      case "SET_USER_FAVS":
+      debugger
+      return {...state, userFavs: action.payload}
     default:
     return state
   }

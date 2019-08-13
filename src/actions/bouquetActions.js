@@ -74,3 +74,15 @@ export const deleteBouquet = (bouquetId, updatedBouquets) => {
     .then(dispatch({type: "UPDATE_BOUQUET", payload: updatedBouquets}))
   }
 }
+
+export const fetchAllBouquets = () => {
+  return dispatch => {
+    return fetch("http://localhost:3000/bouquets")
+    .then(resp => resp.json())
+    .then(data => {
+      if(data.length > 0) {
+        dispatch({type: "SET_ALL_BOUQUETS", payload: data})
+      }
+    })
+  }
+}
