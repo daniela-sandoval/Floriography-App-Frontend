@@ -11,10 +11,9 @@ class FlowerHolder extends Component {
   }
 
   render() {
-    if(this.props.flowers[0]) {
+    if(this.props.filtered[0]) {
       const makeFlowers = () => {
-        debugger
-        return this.props.flowers.map(flower => <FlowerCircle key={flower.id} {...flower}/>)
+        return this.props.filtered.map(flower => <FlowerCircle key={flower.id} {...flower}/>)
       }
       return (
         <div className="garden-holder">
@@ -29,7 +28,7 @@ class FlowerHolder extends Component {
 
 const mapStateToProps = state => {
   return {
-    flowers: state.flowerReducer.flowers
+    filtered: state.flowerReducer.filtered
   }
 }
 

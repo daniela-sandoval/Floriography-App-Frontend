@@ -2,15 +2,16 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 20px;
+  margin: 40px;
   .tone-single {
     border: 2px solid #e97878;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     background-color: #e97878;
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 3px 3px #615858;
   }
 }

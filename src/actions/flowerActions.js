@@ -7,3 +7,9 @@ export const fetchFlowers = () => {
     })
   }
 }
+
+export const filterFlowers = (filtered) => {
+  return dispatch => {
+    return dispatch({type: "FILTER_FLOWERS", payload: filtered})
+  }
+}
