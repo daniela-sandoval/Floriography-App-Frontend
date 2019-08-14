@@ -20,7 +20,6 @@ export const makeFav = (userId, bouquetId) => {
 }
 
 export const getFavorites = (userId) => {
-  debugger
   return dispatch => {
     return fetch("http://localhost:3000/user_favorites", {
       method: "POST",

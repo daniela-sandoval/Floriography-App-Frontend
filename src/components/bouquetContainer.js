@@ -19,10 +19,8 @@ class BouquetContainer extends Component {
   render() {
     const makeBouquets = () => {
       if(this.props.favStatus === false) {
-        debugger
         return this.props.bouquets.map(bouquet => <BouquetDiv key={bouquet.id} {...bouquet}/>)
       } else {
-        debugger
         return this.props.userFavs.map(bouquet => <FeedDiv key={bouquet.id} {...bouquet}/>)
       }
     }

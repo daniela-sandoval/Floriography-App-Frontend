@@ -13,6 +13,8 @@ export default function reducer(state = defaultState, action) {
     case "ADD_TO_BOUQUET":
       return { ...state, userBouquets: [action.payload, ...state.userBouquets] }
       case "UPDATE_BOUQUET":
+      debugger
+      // update userFavs
       return { ...state, userBouquets: action.payload }
       case "USER_FAVS":
       return {...state, userFavs: action.payload, favStatus: true}

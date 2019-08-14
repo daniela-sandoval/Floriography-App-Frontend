@@ -27,12 +27,14 @@ class FeedDiv extends Component {
 
   deleteDiv = () => {
     debugger
-    let updatedBouquets = this.props.bouquets.filter(bouquet => !(bouquet.id === this.props.id))
+    let updatedBouquets = this.props.userFavs.filter(bouquet => !(bouquet.id === this.props.id))
     this.props.deleteBouquet(this.props.id, updatedBouquets)
   }
 
   favClick = (bouquetId) => {
-    if(!this.props.userFavs.filter(fav => fav.id === bouquetId)) {
+    // checks to see if this bouquet is in your favs
+    debugger
+    if(this.props.userFavs.includes(fav => fav.bouquet_id === bouquetId) === false) {
       this.setState({favorited: true}, () => {
         this.props.makeFav(this.props.currentId, bouquetId)
       })
