@@ -50,7 +50,17 @@ export const getFeedFavs = userId => {
     })
     .then(resp => resp.json())
     .then(data => {
-      dispatch({type: "FEED_FAVS", payload: data})
+      dispatch({type: "USER_FAVS", payload: data})
     })
+  }
+}
+
+export const deleteFav = (favId, updatedBouquet) => {
+  debugger
+  return dispatch => {
+    return fetch(`http://localhost:3000/favorites/${favId}`, {
+      method: "DELETE"
+    })
+    .then(dispatch({type: "USER_FAVS", payload: updatedBouquet}))
   }
 }

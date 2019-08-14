@@ -58,7 +58,7 @@ class BouquetDiv extends Component {
             </div>
             <footer>
               <button className="fav">
-                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
+                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
               </button>
             </footer>
           </div>
@@ -72,7 +72,8 @@ const mapStateToProps = state => {
   return {
     bouquets: state.bouquetReducer.userBouquets,
     username: state.userReducer.username,
-    currentId: state.userReducer.currentId
+    currentId: state.userReducer.currentId,
+    userFavs: state.bouquetReducer.userFavs
   }
 }
 
