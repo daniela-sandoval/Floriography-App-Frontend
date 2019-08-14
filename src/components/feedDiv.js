@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import FlowerCircle from './flowerCircle'
-import "../Stylesheets/bouquetDiv.scss"
 import { connect } from 'react-redux';
+import FlowerCircle from './flowerCircle'
 import { deleteBouquet } from '../actions/bouquetActions'
-import { makeFav } from '../actions/favActions'
+import { makeFav, getFeedFavs } from '../actions/favActions'
+import "../Stylesheets/bouquetDiv.scss"
 
 class FeedDiv extends Component {
   state = {
     prompt: false,
-    favorited: false
+    favorited: false,
+    delete: false
   }
+
+  componentDidMount() {
+    this.props.getFeedFavs(this.props.currentId)
+  }
+
 
   handleClick = () => {
     this.setState({delete: true})
@@ -25,8 +31,14 @@ class FeedDiv extends Component {
     this.props.deleteBouquet(this.props.id, updatedBouquets)
   }
 
-  favClick = () => {
-    this.setState({favorited: true})
+  favClick = (bouquetId) => {
+    if(!this.props.userFavs.filter(fav => fav.id === bouquetId)) {
+      this.setState({favorited: true}, () => {
+        this.props.makeFav(this.props.currentId, bouquetId)
+      })
+    } else {
+      alert("You already liked this!")
+    }
   }
 
   unfavClick = () => {
@@ -55,7 +67,7 @@ class FeedDiv extends Component {
             </div>
             <footer>
               <button className="fav">
-                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
+                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
               </button>
             </footer>
           </div>
@@ -67,13 +79,15 @@ class FeedDiv extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentId: state.userReducer.currentId
+    currentId: state.userReducer.currentId,
+    userFavs: state.bouquetReducer.userFavs
   }
 }
 
 const mapDispatchToProps = {
   deleteBouquet: deleteBouquet,
-  makeFav: makeFav
+  makeFav: makeFav,
+  getFeedFavs: getFeedFavs
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedDiv)

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FlowerCircle from './flowerCircle'
-import "../Stylesheets/bouquetDiv.scss"
 import { connect } from 'react-redux';
+import FlowerCircle from './flowerCircle'
 import { deleteBouquet } from '../actions/bouquetActions'
 import { makeFav } from '../actions/favActions'
+import "../Stylesheets/bouquetDiv.scss"
 
 class BouquetDiv extends Component {
   state = {

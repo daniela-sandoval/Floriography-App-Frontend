@@ -86,3 +86,9 @@ export const fetchAllBouquets = () => {
     })
   }
 }
+
+export const userBouquets = bouquets => {
+  return dispatch => {
+    dispatch({type: "TOGGLE_FAV"})
+  }
+}
