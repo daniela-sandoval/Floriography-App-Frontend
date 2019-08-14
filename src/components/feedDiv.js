@@ -34,12 +34,12 @@ class FeedDiv extends Component {
   favClick = (bouquetId) => {
     // checks to see if this bouquet is in your favs
     debugger
-    if(this.props.userFavs.includes(fav => fav.bouquet_id === bouquetId) === false) {
+    if(this.props.userFavs.some(fav => fav.bouquet_id === bouquetId)) {
+      alert("You already liked this!")
+    } else {
       this.setState({favorited: true}, () => {
         this.props.makeFav(this.props.currentId, bouquetId)
       })
-    } else {
-      alert("You already liked this!")
     }
   }
 
