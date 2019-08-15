@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BouquetDiv from './bouquetDiv'
-import FeedDiv from './feedDiv'
+import FavDiv from './favDiv'
 import { getFavorites } from '../actions/favActions'
 import { userBouquets } from '../actions/bouquetActions'
 import "../Stylesheets/bouquetContainer.scss"
 
 class BouquetContainer extends Component {
 
+  state = {
+    user: true,
+    favs: false
+  }
+
   handleClick = (userId) => {
-    this.props.getFavorites(userId)
+    this.setState({user: false, favs: true}, () => this.props.getFavorites(userId))
   }
 
   getUserBouquets = () => {
-    this.props.userBouquets()
+    this.setState({user: true, favs: false}, () => this.props.userBouquets())
   }
 
   render() {
     const makeBouquets = () => {
-      if(this.props.favStatus === false) {
+      if(this.state.user) {
         return this.props.bouquets.map(bouquet => <BouquetDiv key={bouquet.id} {...bouquet}/>)
       } else {
-        return this.props.userFavs.map(bouquet => <FeedDiv key={bouquet.id} {...bouquet}/>)
+        return this.props.userFavs.map(bouquet => <FavDiv key={bouquet.id} {...bouquet}/>)
       }
     }
     return (
@@ -40,8 +45,7 @@ const mapStateToProps = state => {
   return {
     bouquets: state.bouquetReducer.userBouquets,
     user_id: state.userReducer.currentId,
-    userFavs: state.bouquetReducer.userFavs,
-    favStatus: state.bouquetReducer.favStatus
+    userFavs: state.bouquetReducer.userFavs
   }
 }
 
