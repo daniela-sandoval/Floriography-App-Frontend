@@ -18,6 +18,8 @@ export default function reducer(state = defaultState, action) {
     case "UPDATE_FEED":
       let feed = state.allBouquets.filter(bouquet => !(bouquet.id === action.payload))
       return {...state, allBouquets: feed}
+    case "LOG_OUT_BOUQUETS":
+      return defaultState
     default:
     return state
   }

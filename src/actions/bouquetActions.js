@@ -18,7 +18,7 @@ export const makeInputBouquet = (userId, newBouquet) => {
           dispatch({type: "ADD_TO_BOUQUET", payload: data})
           dispatch({type: "CLEAR_LIST"})
         } else {
-          dispatch({type: "ERROR", payload: data.error})
+          dispatch({type: "ERROR", payload: data.errors})
         }
       })
   }

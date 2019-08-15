@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { logOutUser } from '../actions/userActions'
 import "../Stylesheets/navbar.scss";
 
-const Navbar = () => {
+const Navbar = (props) => {
 
   const handleClick = (event) => {
-    localStorage.clear()
+    props.logOutUser()
   }
 
   return (

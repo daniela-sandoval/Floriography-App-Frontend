@@ -6,7 +6,8 @@ import "../Stylesheets/inputForm.scss"
 class inputForm extends Component {
   state = {
     title: "",
-    sentence: ""
+    sentence: "",
+    errorStat: false
   }
 
   handleChange = (event) => {
@@ -15,11 +16,13 @@ class inputForm extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault()
-    this.props.makeInputBouquet(this.props.userId, this.state)
+    debugger
+    await this.props.makeInputBouquet(this.props.userId, this.state)
     if(this.props.errorStatus) {
       console.log(this.props.error)
+      this.setState({errorStat: this.props.errorStatus})
     } else {
       this.props.submitClick(event)
     }
@@ -35,6 +38,7 @@ class inputForm extends Component {
       <div className="modal-content-input">
         <span className="close-input" id="input" onClick={this.handleClose}>&times;</span>
         <h4>pls type a sentence</h4>
+        <p>{this.state.errorStat ?  this.props.error : null}</p>
         <form id="input" onSubmit={this.handleSubmit}>
           <label htmlFor="title">Your Title: </label>
           <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="Title your bouquet!"/><br/>

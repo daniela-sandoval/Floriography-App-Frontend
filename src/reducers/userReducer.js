@@ -1,6 +1,5 @@
 const defaultState = {
   currentUser: {},
-  signIn: false,
   currentId: null,
   username: null,
   errorStatus: false,
@@ -11,11 +10,11 @@ export default function reducer(state = defaultState, action) {
 
   switch (action.type) {
     case "LOGIN_USER":
-      return {...state, currentUser: action.payload, signIn: true, currentId: action.payload.id, username: action.payload.username}
+      return {...state, currentUser: action.payload, currentId: action.payload.id, username: action.payload.username}
     case "ERROR":
       return {...state, errorStatus: true, error: action.payload}
-    case "LOG_OUT":
-      return {signIn: false}
+    case "LOG_OUT_USER":
+      return defaultState
     default:
     return state
   }

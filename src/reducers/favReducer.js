@@ -11,6 +11,8 @@ export default function reducer(state = defaultState, action) {
     case "UPDATE_FAVS":
       let updatedFavs = state.userFavs.filter(fav => !(fav.id === action.payload))
       return {...state, userFavs: updatedFavs}
+    case "LOG_OUT_FAVS":
+      return defaultState
     default:
     return state
   }

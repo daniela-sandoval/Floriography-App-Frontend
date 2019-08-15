@@ -66,6 +66,8 @@ export const getProfile = () => {
 export const logOutUser = () => {
   return dispatch => {
     localStorage.clear()
-    return dispatch({type: "LOG_OUT"})
+    dispatch({type: "LOG_OUT_USER"})
+    dispatch({type: "LOG_OUT_FAVS"})
+    dispatch({type: "LOG_OUT_BOUQUETS"})
   }
 }
