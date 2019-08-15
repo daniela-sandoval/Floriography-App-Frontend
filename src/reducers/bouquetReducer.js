@@ -13,14 +13,15 @@ export default function reducer(state = defaultState, action) {
       return { ...state, userBouquets: [action.payload, ...state.userBouquets] }
     case "UPDATE_BOUQUET":
       // update userFavs
-      return { ...state, userBouquets: action.payload }
+      let updatedBouquets = state.userBouquets.filter(bouquet => !(bouquet.id === action.payload))
+      return { ...state, userBouquets: updatedBouquets }
     case "USER_FAVS":
-    debugger
       return {...state, userFavs: action.payload}
-    case "TOGGLE_FAV":
-      return {...state, favStatus: false}
-    case "UPDATE_FAVS":
+    case "ADD_FAVS":
       return {...state, userFavs: [action.payload, ...state.userFavs]}
+    case "UPDATE_FAVS":
+      let updatedFavs = state.userFavs.filter(fav => !(fav.id === action.payload))
+      return {...state, userFavs: updatedFavs}
     case "SET_ALL_BOUQUETS":
       return {...state, allBouquets: action.payload}
     default:

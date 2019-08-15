@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlowerCircle from './flowerCircle'
 import { deleteBouquet } from '../actions/bouquetActions'
-import { makeFav } from '../actions/favActions'
+import { makeFav, deleteFav } from '../actions/favActions'
 import "../Stylesheets/bouquetDiv.scss"
 
 class BouquetDiv extends Component {
   state = {
     prompt: false,
-    favorited: false,
     delete: false
   }
 
@@ -20,20 +19,18 @@ class BouquetDiv extends Component {
     this.setState({delete: false})
   }
 
-  deleteDiv = () => {
+  favClick = () => {
     debugger
-    let updatedBouquets = this.props.bouquets.filter(bouquet => !(bouquet.id === this.props.id))
-    this.props.deleteBouquet(this.props.id, updatedBouquets)
-  }
-
-  favClick = (bouquetId) => {
-    this.setState({favorited: true}, () => {
-      this.props.makeFav(this.props.currentId, bouquetId)
-    })
+    this.props.makeFav(this.props.currentId, this.props.id)
   }
 
   unfavClick = () => {
-    this.setState({favorited: false})
+    let favId = this.props.userFavs.find(fav => fav.bouquet_id === this.props.id).id
+    this.props.deleteFav(favId)
+  }
+
+  deleteDiv = () => {
+    this.props.deleteBouquet(this.props.id)
   }
 
   render() {
@@ -58,7 +55,7 @@ class BouquetDiv extends Component {
             </div>
             <footer>
               <button className="fav">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
+                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
               </button>
             </footer>
           </div>
@@ -70,7 +67,6 @@ class BouquetDiv extends Component {
 
 const mapStateToProps = state => {
   return {
-    bouquets: state.bouquetReducer.userBouquets,
     username: state.userReducer.username,
     currentId: state.userReducer.currentId,
     userFavs: state.bouquetReducer.userFavs
@@ -79,7 +75,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   deleteBouquet: deleteBouquet,
-  makeFav: makeFav
+  makeFav: makeFav,
+  deleteFav: deleteFav
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BouquetDiv)

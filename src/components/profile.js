@@ -4,6 +4,7 @@ import InputForm from './inputForm'
 import AdjForm from './adjForm'
 import BouquetContainer from './bouquetContainer'
 import { makeRandomBouquet } from "../actions/bouquetActions"
+import { getProfile } from '../actions/userActions'
 import "../Stylesheets/profile.scss";
 
 class Profile extends Component {
@@ -13,6 +14,9 @@ class Profile extends Component {
     random: false
   }
 
+  componentDidMount() {
+    this.props.getProfile()
+  }
   handleClick = event => {
     this.setState({[event.target.id]: !this.state[event.target.id]})
   }
@@ -22,32 +26,29 @@ class Profile extends Component {
   }
 
   render () {
-    if(this.props.username) {
-      return (
-        <div className="Profile">
-          <div className="SideBar">
-            <h1>{this.props.username}</h1>
-            <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
-            <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
-            <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
-            {this.state.adjective ?
-              <AdjForm submitClick={this.handleClick}/>
-            :
-            null
-            }
-            {this.state.input ?
-              <InputForm submitClick={this.handleClick}/>
-            :
-            null
-            }
-          </div>
-        <BouquetContainer />
+    return (
+      <div className="Profile">
+        <div className="SideBar">
+          <h1>{this.props.username}</h1>
+          <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
+          <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
+          <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
+          {this.state.adjective ?
+            <AdjForm submitClick={this.handleClick}/>
+          :
+          null
+          }
+          {this.state.input ?
+            <InputForm submitClick={this.handleClick}/>
+          :
+          null
+          }
         </div>
-      )
-    } else {
-      return null
-    }
+        <BouquetContainer />
+      </div>
+    )
   }
+
 }
 
 const mapStateToProps = state => {
@@ -59,7 +60,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  makeRandomBouquet: makeRandomBouquet
+  makeRandomBouquet: makeRandomBouquet,
+  getProfile: getProfile
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

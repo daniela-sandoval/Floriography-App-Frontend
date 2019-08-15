@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addAdjList } from '../actions/adjActions'
-import { removeAdj } from '../actions/adjActions'
+import { addAdjList, removeAdj } from '../actions/adjActions'
 import "../Stylesheets/adjective.scss"
 
 class Adjective extends Component {
@@ -10,10 +9,9 @@ class Adjective extends Component {
   }
 
   handleClick = (event) => {
-    // if it is in the basket, removie it
+    // if it is in the list, remove it
     // if it is less than 5 change color
     // if it is not included add it
-
     if(this.props.adjList.includes(event.target.id)) {
       this.setState({ clicked: !this.state.clicked })
       let newList = this.props.adjList.filter(x => !(x === event.target.id))
@@ -26,7 +24,6 @@ class Adjective extends Component {
         alert("You have more than 5...")
       }
     }
-
   }
 
   render() {
