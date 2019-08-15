@@ -18,7 +18,11 @@ class inputForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.makeInputBouquet(this.props.userId, this.state)
-    this.props.submitClick(event)
+    if(this.props.errorStatus) {
+      console.log(this.props.error)
+    } else {
+      this.props.submitClick(event)
+    }
   }
 
   handleClose = (event) => {
@@ -49,6 +53,8 @@ class inputForm extends Component {
 const mapStateToProps = state => {
   return {
     userId: state.userReducer.currentUser.id,
+    errorStatus: state.userReducer.errorStatus,
+    error: state.userReducer.error
   }
 }
 

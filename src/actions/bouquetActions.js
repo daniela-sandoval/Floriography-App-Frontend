@@ -13,9 +13,12 @@ export const makeInputBouquet = (userId, newBouquet) => {
       })
       .then(resp => resp.json())
       .then(data => {
+        debugger
         if(data.id) {
           dispatch({type: "ADD_TO_BOUQUET", payload: data})
           dispatch({type: "CLEAR_LIST"})
+        } else {
+          dispatch({type: "ERROR", payload: data.error})
         }
       })
   }
