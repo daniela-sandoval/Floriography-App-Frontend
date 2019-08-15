@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { makeAdjBouquet, turnOffLoading } from '../actions/bouquetActions'
 import { fetchAdjs, clearList } from '../actions/adjActions'
 import Adjective from './adjective'
+import Loading from './loading'
 import "../Stylesheets/adjForm.scss"
 
 class AdjForm extends Component {
@@ -47,7 +48,7 @@ class AdjForm extends Component {
       return (
         <div className="modal">
             {this.props.loading ?
-              <div>hello</div>
+              <Loading />
               :
             <div className="modal-content">
               <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
