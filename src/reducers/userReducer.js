@@ -13,6 +13,8 @@ export default function reducer(state = defaultState, action) {
       return {...state, currentUser: action.payload, currentId: action.payload.id, username: action.payload.username}
     case "ERROR":
       return {...state, errorStatus: true, error: action.payload}
+    case "CLEAR_ERROR":
+      return {...state, errorStatus: false, error: ""}
     case "LOG_OUT_USER":
       return defaultState
     default:

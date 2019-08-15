@@ -18,11 +18,10 @@ class inputForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    debugger
+    event.persist()
     await this.props.makeInputBouquet(this.props.userId, this.state)
     if(this.props.errorStatus) {
-      console.log(this.props.error)
-      this.setState({errorStat: this.props.errorStatus})
+      this.setState({errorStat: this.props.errorStatus, sentence: ""})
     } else {
       this.props.submitClick(event)
     }
@@ -36,10 +35,10 @@ class inputForm extends Component {
     return (
     <div className="modal-input">
       <div className="modal-content-input">
-        <span className="close-input" id="input" onClick={this.handleClose}>&times;</span>
+        <span id="close-input" className="input" onClick={this.handleClose}>&times;</span>
         <h4>pls type a sentence</h4>
         <p>{this.state.errorStat ?  this.props.error : null}</p>
-        <form id="input" onSubmit={this.handleSubmit}>
+        <form className="input" onSubmit={this.handleSubmit}>
           <label htmlFor="title">Your Title: </label>
           <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="Title your bouquet!"/><br/>
 

@@ -44,7 +44,7 @@ class AdjForm extends Component {
       return (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" id="adjective" onClick={this.handleClose}>&times;</span>
+            <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
             <h4>pls choose 5 adjectives</h4>
               <label htmlFor="title">Your Title: </label>
               <input name="title" id="title" type="text" onChange={this.handleChange}/>

@@ -1,5 +1,6 @@
 export const makeInputBouquet = (userId, newBouquet) => {
   return dispatch => {
+    dispatch({type: "CLEAR_ERROR"})
     return fetch("http://localhost:3000/bouquets", {
         method: "POST",
         headers: {

@@ -18,7 +18,8 @@ class Profile extends Component {
     this.props.getProfile()
   }
   handleClick = event => {
-    this.setState({[event.target.id]: !this.state[event.target.id]})
+    debugger
+    this.setState({[event.target.className]: !this.state[event.target.className]})
   }
 
   handleRandom = () => {
@@ -30,9 +31,9 @@ class Profile extends Component {
       <div className="Profile">
         <div className="SideBar">
           <h1>{this.props.username}</h1>
-          <button id="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
-          <button id="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
-          <button id="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
+          <button className="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
+          <button className="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
+          <button className="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
           {this.state.adjective ?
             <AdjForm submitClick={this.handleClick}/>
           :
