@@ -37,24 +37,6 @@ export const getFavorites = (userId) => {
   }
 }
 
-export const getFeedFavs = userId => {
-  return dispatch => {
-    return fetch("http://localhost:3000/user_favorites", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: userId
-      })
-    })
-    .then(resp => resp.json())
-    .then(data => {
-      dispatch({type: "USER_FAVS", payload: data})
-    })
-  }
-}
-
 export const deleteFav = (favId) => {
   debugger
   return dispatch => {

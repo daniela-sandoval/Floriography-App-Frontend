@@ -87,8 +87,8 @@ export const fetchAllBouquets = () => {
   }
 }
 
-export const userBouquets = bouquets => {
+export const updateFeed = bouquetId => {
   return dispatch => {
-    dispatch({type: "TOGGLE_FAV"})
+    dispatch({type: "UPDATE_FEED", payload: bouquetId})
   }
 }

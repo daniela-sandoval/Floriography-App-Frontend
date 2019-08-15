@@ -44,7 +44,7 @@ const mapStateToProps = state => {
   return {
     bouquets: state.bouquetReducer.userBouquets,
     user_id: state.userReducer.currentId,
-    userFavs: state.bouquetReducer.userFavs
+    userFavs: state.favReducer.userFavs
   }
 }
 

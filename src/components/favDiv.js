@@ -33,7 +33,7 @@ class FavDiv extends Component {
 
 const mapStateToProps = state => {
   return {
-    userFavs: state.bouquetReducer.userFavs
+    userFavs: state.favReducer.userFavs
   }
 }
 
