@@ -18,7 +18,6 @@ class Profile extends Component {
     this.props.getProfile()
   }
   handleClick = event => {
-    debugger
     this.setState({[event.target.className]: !this.state[event.target.className]})
   }
 

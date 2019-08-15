@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { makeAdjBouquet } from '../actions/bouquetActions'
+import { makeAdjBouquet, turnOffLoading } from '../actions/bouquetActions'
 import { fetchAdjs, clearList } from '../actions/adjActions'
 import Adjective from './adjective'
 import "../Stylesheets/adjForm.scss"
@@ -12,12 +12,15 @@ class AdjForm extends Component {
   }
 
   componentDidMount() {
+    this.props.turnOffLoading()
     this.props.fetchAdjs()
   }
 
-  handleClick = (event) => {
+  handleClick = async (event) => {
+    event.persist()
     if((this.props.adjList.length === 5) && !(this.state.title === "")) {
-      this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
+      await this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
+      debugger
       this.props.submitClick(event)
     } else {
       alert("pls add more adjectives or a title!")
@@ -43,16 +46,20 @@ class AdjForm extends Component {
 
       return (
         <div className="modal">
-          <div className="modal-content">
-            <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
-            <h4>pls choose 5 adjectives</h4>
+            {this.props.loading ?
+              <div>hello</div>
+              :
+            <div className="modal-content">
+              <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
+              <h4>pls choose 5 adjectives</h4>
               <label htmlFor="title">Your Title: </label>
               <input name="title" id="title" type="text" onChange={this.handleChange}/>
               <div className="adj-con">
                 {makeAdjs()}
               </div>
-            <button id="adjective" onClick={this.handleClick}>SUBMIT</button>
-          </div>
+              <button className="adjective" onClick={this.handleClick}>SUBMIT</button>
+            </div>
+            }
         </div>
       )
     } else {
@@ -67,6 +74,7 @@ const mapStateToProps = state => {
   adjs: state.adjReducer.adjs,
   adjList: state.adjReducer.adjList,
   userId: state.userReducer.currentUser.id,
+  loading: state.bouquetReducer.loading
   }
 }
 
@@ -74,7 +82,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   makeAdjBouquet: makeAdjBouquet,
   fetchAdjs: fetchAdjs,
-  clearList: clearList
+  clearList: clearList,
+  turnOffLoading: turnOffLoading
 }
 
 

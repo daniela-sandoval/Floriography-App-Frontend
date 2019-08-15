@@ -14,7 +14,6 @@ export const makeInputBouquet = (userId, newBouquet) => {
       })
       .then(resp => resp.json())
       .then(data => {
-        debugger
         if(data.id) {
           dispatch({type: "ADD_TO_BOUQUET", payload: data})
           dispatch({type: "CLEAR_LIST"})
@@ -27,6 +26,7 @@ export const makeInputBouquet = (userId, newBouquet) => {
 
 export const makeAdjBouquet = (adjs, userId, title) => {
   return dispatch => {
+    dispatch({type: "LOADING_SCREEN"})
     return fetch("http://localhost:3000/bouquet_adj", {
       method: "POST",
       headers: {
@@ -94,5 +94,11 @@ export const fetchAllBouquets = () => {
 export const updateFeed = bouquetId => {
   return dispatch => {
     dispatch({type: "UPDATE_FEED", payload: bouquetId})
+  }
+}
+
+export const turnOffLoading = () => {
+  return dispatch => {
+    dispatch({type: "TURN_OFF_LOADING"})
   }
 }
