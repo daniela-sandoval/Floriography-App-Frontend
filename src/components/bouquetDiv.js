@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import FlowerCircle from './flowerCircle'
-import { deleteBouquet } from '../actions/bouquetActions'
-import { makeFav, deleteFav, getFavorites } from '../actions/favActions'
-import "../Stylesheets/bouquetDiv.scss"
+import FlowerCircle from './flowerCircle';
+import { deleteBouquet } from '../actions/bouquetActions';
+import { makeFav, deleteFav, getFavorites } from '../actions/favActions';
+import "../Stylesheets/bouquetDiv.scss";
 
 class BouquetDiv extends Component {
   state = {
@@ -15,6 +16,11 @@ class BouquetDiv extends Component {
     this.props.getFavorites(this.props.currentId)
   }
 
+  handleDate = () => {
+    let dateToFormat = this.props.created_at
+    return <Moment format="LLLL">{dateToFormat}</Moment>
+  }
+
   handleClick = () => {
     this.setState({delete: true})
   }
@@ -24,7 +30,6 @@ class BouquetDiv extends Component {
   }
 
   favClick = () => {
-    debugger
     this.props.makeFav(this.props.currentId, this.props.id)
   }
 
@@ -36,6 +41,7 @@ class BouquetDiv extends Component {
   deleteDiv = () => {
     this.props.deleteBouquet(this.props.id)
   }
+
 
   render() {
     const makeCircles = () => {
@@ -60,7 +66,8 @@ class BouquetDiv extends Component {
             <footer>
               <button className="fav">
                 {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
-              </button>
+              </button><br/>
+              {this.handleDate()}
             </footer>
           </div>
         }

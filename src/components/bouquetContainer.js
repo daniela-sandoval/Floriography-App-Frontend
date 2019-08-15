@@ -30,8 +30,8 @@ class BouquetContainer extends Component {
     }
     return (
       <div className="bouquet-container">
-        <button onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
-        <button onClick={this.handleClick}>YOUR FAVORITES</button><br/>
+        <button style={this.state.user ? {color: "red"} : null} onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
+        <button style={this.state.favs ? {color: "red"} : null} onClick={this.handleClick}>YOUR FAVORITES</button><br/>
         <div className="bouquet-box">
           {makeBouquets()}
         </div>

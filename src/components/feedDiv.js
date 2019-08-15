@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import FlowerCircle from './flowerCircle'
 import { deleteBouquet, updateFeed } from '../actions/bouquetActions'
 import { makeFav, getFavorites, deleteFav } from '../actions/favActions'
@@ -13,6 +14,11 @@ class FeedDiv extends Component {
 
   componentDidMount() {
     this.props.getFavorites (this.props.currentId)
+  }
+
+  handleDate = () => {
+    let dateToFormat = this.props.created_at
+    return <Moment format="LLLL">{dateToFormat}</Moment>
   }
 
   handleClick = () => {
@@ -61,7 +67,8 @@ class FeedDiv extends Component {
             <footer>
               <button className="fav">
                 {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
-              </button>
+              </button><br/>
+            {this.handleDate()}
             </footer>
           </div>
         }
