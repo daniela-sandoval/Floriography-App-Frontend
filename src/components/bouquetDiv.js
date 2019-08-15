@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlowerCircle from './flowerCircle'
 import { deleteBouquet } from '../actions/bouquetActions'
-import { makeFav, deleteFav } from '../actions/favActions'
+import { makeFav, deleteFav, getFavorites } from '../actions/favActions'
 import "../Stylesheets/bouquetDiv.scss"
 
 class BouquetDiv extends Component {
   state = {
     prompt: false,
     delete: false
+  }
+
+  componentDidMount() {
+    this.props.getFavorites(this.props.currentId)
   }
 
   handleClick = () => {
@@ -69,14 +73,15 @@ const mapStateToProps = state => {
   return {
     username: state.userReducer.username,
     currentId: state.userReducer.currentId,
-    userFavs: state.bouquetReducer.userFavs
+    userFavs: state.favReducer.userFavs
   }
 }
 
 const mapDispatchToProps = {
   deleteBouquet: deleteBouquet,
   makeFav: makeFav,
-  deleteFav: deleteFav
+  deleteFav: deleteFav,
+  getFavorites: getFavorites
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BouquetDiv)

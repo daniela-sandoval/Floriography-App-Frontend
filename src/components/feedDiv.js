@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlowerCircle from './flowerCircle'
-import { deleteBouquet } from '../actions/bouquetActions'
-import { makeFav, getFeedFavs } from '../actions/favActions'
+import { deleteBouquet, updateFeed } from '../actions/bouquetActions'
+import { makeFav, getFavorites, deleteFav } from '../actions/favActions'
 import "../Stylesheets/bouquetDiv.scss"
 
 class FeedDiv extends Component {
   state = {
     prompt: false,
-    favorited: false,
     delete: false
   }
 
   componentDidMount() {
-    this.props.getFeedFavs(this.props.currentId)
+    this.props.getFavorites (this.props.currentId)
   }
-
 
   handleClick = () => {
     this.setState({delete: true})
@@ -26,24 +24,18 @@ class FeedDiv extends Component {
   }
 
   deleteDiv = () => {
-    debugger
-    let updatedBouquets = this.props.userFavs.filter(bouquet => !(bouquet.id === this.props.id))
-    this.props.deleteBouquet(this.props.id, updatedBouquets)
+    this.props.deleteBouquet(this.props.id)
+    this.props.updateFeed(this.props.id)
   }
 
-  favClick = (bouquetId) => {
-    // checks to see if this bouquet is in your favs
-    if(this.props.userFavs.some(fav => fav.bouquet_id === bouquetId)) {
-      alert("You already liked this!")
-    } else {
-      this.setState({favorited: true}, () => {
-        this.props.makeFav(this.props.currentId, bouquetId)
-      })
-    }
+  favClick = () => {
+    this.props.makeFav(this.props.currentId, this.props.id)
   }
 
   unfavClick = () => {
-    this.setState({favorited: false})
+    debugger
+    let favId = this.props.userFavs.find(fav => fav.bouquet_id === this.props.id).id
+    this.props.deleteFav(favId)
   }
 
   render() {
@@ -68,7 +60,7 @@ class FeedDiv extends Component {
             </div>
             <footer>
               <button className="fav">
-                {this.state.favorited ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
+                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
               </button>
             </footer>
           </div>
@@ -81,14 +73,16 @@ class FeedDiv extends Component {
 const mapStateToProps = state => {
   return {
     currentId: state.userReducer.currentId,
-    userFavs: state.bouquetReducer.userFavs
+    userFavs: state.favReducer.userFavs
   }
 }
 
 const mapDispatchToProps = {
   deleteBouquet: deleteBouquet,
+  getFavorites : getFavorites,
   makeFav: makeFav,
-  getFeedFavs: getFeedFavs
+  deleteFav: deleteFav,
+  updateFeed: updateFeed
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedDiv)
