@@ -14,7 +14,7 @@ export const makeFav = (userId, bouquetId) => {
     .then(resp => resp.json())
     .then(data => {
       debugger
-      dispatch({type: "UPDATE_FAVS", payload: data})
+      dispatch({type: "ADD_FAVS", payload: data})
     })
   }
 }
@@ -55,12 +55,12 @@ export const getFeedFavs = userId => {
   }
 }
 
-export const deleteFav = (favId, updatedBouquet) => {
+export const deleteFav = (favId) => {
   debugger
   return dispatch => {
     return fetch(`http://localhost:3000/favorites/${favId}`, {
       method: "DELETE"
     })
-    .then(dispatch({type: "USER_FAVS", payload: updatedBouquet}))
+    .then(dispatch({type: "UPDATE_FAVS", payload: favId}))
   }
 }

@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FlowerCircle from './flowerCircle'
-import { getFavorites, deleteFav } from '../actions/favActions'
+import { deleteFav } from '../actions/favActions'
 import "../Stylesheets/bouquetDiv.scss"
 
 class FavDiv extends Component {
-  state = {
-    favorited: false
-  }
-
-  componentDidMount() {
-    this.props.getFavorites(this.props.currentId)
-  }
-
 
   deleteDiv = () => {
-    let updatedBouquets = this.props.userFavs.filter(fav => !(fav.id === this.props.id))
-    this.props.deleteFav(this.props.id, updatedBouquets)
+    this.props.deleteFav(this.props.id)
   }
 
   render() {
@@ -42,13 +33,11 @@ class FavDiv extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentId: state.userReducer.currentId,
     userFavs: state.bouquetReducer.userFavs
   }
 }
 
 const mapDispatchToProps = {
-  getFavorites: getFavorites,
   deleteFav: deleteFav
 }
 

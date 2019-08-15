@@ -65,13 +65,13 @@ export const makeRandomBouquet = userId => {
   }
 }
 
-export const deleteBouquet = (bouquetId, updatedBouquets) => {
+export const deleteBouquet = (bouquetId) => {
   debugger
   return dispatch => {
     return fetch(`http://localhost:3000/bouquets/${bouquetId}`, {
       method: "DELETE"
     })
-    .then(dispatch({type: "UPDATE_BOUQUET", payload: updatedBouquets}))
+    .then(dispatch({type: "UPDATE_BOUQUET", payload: bouquetId}))
   }
 }
 

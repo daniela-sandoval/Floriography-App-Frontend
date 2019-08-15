@@ -4,22 +4,17 @@ import Navbar from './navbar';
 import Profile from './profile'
 import Feed from './feed'
 import Garden from './garden'
-import { getProfile } from '../actions/userActions'
-import { connect } from 'react-redux'
 
 class FlowerApp extends Component {
 
   componentDidMount() {
-    if(localStorage.token) {
-    this.props.getProfile()
-  } else {
+    if(!localStorage.token) {
     this.props.history.push('/welcome')
     }
   }
 
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <Navbar/>
@@ -33,8 +28,5 @@ class FlowerApp extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  getProfile: getProfile
-}
 
-export default connect(null, mapDispatchToProps)(FlowerApp)
+export default FlowerApp

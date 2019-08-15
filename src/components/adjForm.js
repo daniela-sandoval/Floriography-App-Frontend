@@ -16,12 +16,11 @@ class AdjForm extends Component {
   }
 
   handleClick = (event) => {
-    // add some logic if the title is empty...
-    if(this.props.adjList.length === 5 ) {
+    if((this.props.adjList.length === 5) && !(this.state.title === "")) {
       this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
       this.props.submitClick(event)
     } else {
-      alert("pls add more adjectives!")
+      alert("pls add more adjectives or a title!")
     }
   }
 

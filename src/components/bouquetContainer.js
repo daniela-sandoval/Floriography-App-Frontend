@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import BouquetDiv from './bouquetDiv'
 import FavDiv from './favDiv'
 import { getFavorites } from '../actions/favActions'
-import { userBouquets } from '../actions/bouquetActions'
 import "../Stylesheets/bouquetContainer.scss"
 
 class BouquetContainer extends Component {
@@ -13,12 +12,12 @@ class BouquetContainer extends Component {
     favs: false
   }
 
-  handleClick = (userId) => {
-    this.setState({user: false, favs: true}, () => this.props.getFavorites(userId))
+  handleClick = () => {
+    this.setState({user: false, favs: true}, () => this.props.getFavorites(this.props.user_id))
   }
 
   getUserBouquets = () => {
-    this.setState({user: true, favs: false}, () => this.props.userBouquets())
+    this.setState({user: true, favs: false})
   }
 
   render() {
@@ -26,13 +25,13 @@ class BouquetContainer extends Component {
       if(this.state.user) {
         return this.props.bouquets.map(bouquet => <BouquetDiv key={bouquet.id} {...bouquet}/>)
       } else {
-        return this.props.userFavs.map(bouquet => <FavDiv key={bouquet.id} {...bouquet}/>)
+        return this.props.userFavs.map(fav => <FavDiv key={fav.id} {...fav}/>)
       }
     }
     return (
       <div className="bouquet-container">
         <button onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
-        <button onClick={event => {this.handleClick(this.props.user_id)}}>YOUR FAVORITES</button><br/>
+        <button onClick={this.handleClick}>YOUR FAVORITES</button><br/>
         <div className="bouquet-box">
           {makeBouquets()}
         </div>
@@ -50,8 +49,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  getFavorites: getFavorites,
-  userBouquets: userBouquets
+  getFavorites: getFavorites
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BouquetContainer)
