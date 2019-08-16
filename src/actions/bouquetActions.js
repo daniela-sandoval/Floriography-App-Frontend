@@ -15,7 +15,7 @@ export const makeInputBouquet = (userId, newBouquet) => {
       .then(resp => resp.json())
       .then(data => {
         if(data.id) {
-          dispatch({type: "ADD_TO_BOUQUET", payload: data})
+          dispatch({type: "SET_NEW_BOUQUET", payload: data})
           dispatch({type: "CLEAR_LIST"})
         } else {
           dispatch({type: "ERROR", payload: data.errors})
@@ -41,7 +41,7 @@ export const makeAdjBouquet = (adjs, userId, title) => {
     .then(resp => resp.json())
     .then(data => {
       if(data.id) {
-        dispatch({type: "ADD_TO_BOUQUET", payload: data})
+        dispatch({type: "SET_NEW_BOUQUET", payload: data})
         dispatch({type: "CLEAR_LIST"})
       }
     })
@@ -50,6 +50,7 @@ export const makeAdjBouquet = (adjs, userId, title) => {
 
 export const makeRandomBouquet = userId => {
   return dispatch => {
+    dispatch({type: "LOADING_SCREEN"})
     return fetch("http://localhost:3000/rand_bouquets", {
       method: "POST",
       headers: {
@@ -63,14 +64,13 @@ export const makeRandomBouquet = userId => {
     .then(resp => resp.json())
     .then(data => {
       if(data.id) {
-        dispatch({type: "ADD_TO_BOUQUET", payload: data})
+        dispatch({type: "SET_NEW_BOUQUET", payload: data})
       }
     })
   }
 }
 
 export const deleteBouquet = (bouquetId) => {
-  debugger
   return dispatch => {
     return fetch(`http://localhost:3000/bouquets/${bouquetId}`, {
       method: "DELETE"
@@ -100,5 +100,18 @@ export const updateFeed = bouquetId => {
 export const turnOffLoading = () => {
   return dispatch => {
     dispatch({type: "TURN_OFF_LOADING"})
+  }
+}
+
+export const turnOnLoading = () => {
+  return dispatch => {
+    dispatch({type: "LOADING_SCREEN"})
+  }
+}
+
+export const addNewToBouquet = () => {
+  // i add the bouquet that sitting aside NOW to the bouquets of the user
+  return dispatch => {
+    dispatch({type: "ADD_TO_BOUQUET"})
   }
 }
