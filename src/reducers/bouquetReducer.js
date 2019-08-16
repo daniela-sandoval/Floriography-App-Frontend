@@ -1,6 +1,7 @@
 const defaultState = {
   userBouquets: [],
   allBouquets: [],
+  currentNew: {},
   loading: false
 }
 
@@ -9,8 +10,10 @@ export default function reducer(state = defaultState, action) {
   switch (action.type) {
     case "USER_BOUQUETS":
       return { ...state, userBouquets: action.payload}
+    case "SET_NEW_BOUQUET":
+      return {...state, currentNew: action.payload}
     case "ADD_TO_BOUQUET":
-      return { ...state, userBouquets: [action.payload, ...state.userBouquets] }
+      return { ...state, userBouquets: [state.currentNew, ...state.userBouquets], currentNew: {} }
     case "UPDATE_BOUQUET":
       let updatedBouquets = state.userBouquets.filter(bouquet => !(bouquet.id === action.payload))
       return { ...state, userBouquets: updatedBouquets }
@@ -20,7 +23,6 @@ export default function reducer(state = defaultState, action) {
       let feed = state.allBouquets.filter(bouquet => !(bouquet.id === action.payload))
       return {...state, allBouquets: feed}
     case "LOADING_SCREEN":
-      debugger
       return {...state, loading: true}
     case "TURN_OFF_LOADING":
       return {...state, loading: false}

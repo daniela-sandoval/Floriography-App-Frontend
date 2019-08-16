@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BouquetDiv from './bouquetDiv'
 import FavDiv from './favDiv'
+import Loading from './loading'
 import { getFavorites } from '../actions/favActions'
 import "../Stylesheets/bouquetContainer.scss"
 
@@ -33,6 +34,7 @@ class BouquetContainer extends Component {
         <button style={this.state.user ? {color: "red"} : null} onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
         <button style={this.state.favs ? {color: "red"} : null} onClick={this.handleClick}>YOUR FAVORITES</button><br/>
         <div className="bouquet-box">
+          {this.props.loading ? <Loading /> : null}
           {makeBouquets()}
         </div>
       </div>
@@ -44,7 +46,8 @@ const mapStateToProps = state => {
   return {
     bouquets: state.bouquetReducer.userBouquets,
     user_id: state.userReducer.currentId,
-    userFavs: state.favReducer.userFavs
+    userFavs: state.favReducer.userFavs,
+    loading: state.bouquetReducer.loading
   }
 }
 

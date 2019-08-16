@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { makeAdjBouquet, turnOffLoading } from '../actions/bouquetActions'
 import { fetchAdjs, clearList } from '../actions/adjActions'
 import Adjective from './adjective'
-import Loading from './loading'
 import "../Stylesheets/adjForm.scss"
 
 class AdjForm extends Component {
@@ -17,10 +16,10 @@ class AdjForm extends Component {
     this.props.fetchAdjs()
   }
 
-  handleClick = async (event) => {
+  handleClick = (event) => {
     event.persist()
     if((this.props.adjList.length === 5) && !(this.state.title === "")) {
-      await this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
+      this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
       debugger
       this.props.submitClick(event)
     } else {
@@ -47,9 +46,6 @@ class AdjForm extends Component {
 
       return (
         <div className="modal">
-            {this.props.loading ?
-              <Loading />
-              :
             <div className="modal-content">
               <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
               <h4>pls choose 5 adjectives</h4>
@@ -60,7 +56,6 @@ class AdjForm extends Component {
               </div>
               <button className="adjective" onClick={this.handleClick}>SUBMIT</button>
             </div>
-            }
         </div>
       )
     } else {

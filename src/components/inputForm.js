@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { makeInputBouquet } from '../actions/bouquetActions'
+import { makeInputBouquet, turnOffLoading, turnOnLoading } from '../actions/bouquetActions'
 import "../Stylesheets/inputForm.scss"
 
 class inputForm extends Component {
@@ -8,7 +8,10 @@ class inputForm extends Component {
     title: "",
     sentence: "",
     errorStat: false,
-    loading: false
+  }
+
+  componentDidMount() {
+    this.props.turnOffLoading()
   }
 
   handleChange = (event) => {
@@ -25,6 +28,7 @@ class inputForm extends Component {
       this.setState({errorStat: this.props.errorStatus, sentence: ""})
     } else {
       this.props.submitClick(event)
+      this.props.turnOnLoading()
     }
   }
 
@@ -35,9 +39,6 @@ class inputForm extends Component {
   render() {
     return (
     <div className="modal-input">
-      {this.state.loading ?
-        <div>hello</div>
-        :
         <div className="modal-content-input">
           <span id="close-input" className="input" onClick={this.handleClose}>&times;</span>
           <h4>pls type a sentence</h4>
@@ -52,7 +53,6 @@ class inputForm extends Component {
             <input type="submit"/>
           </form>
         </div>
-      }
     </div>
     )
   }
@@ -67,7 +67,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  makeInputBouquet: makeInputBouquet
+  makeInputBouquet: makeInputBouquet,
+  turnOnLoading: turnOnLoading,
+  turnOffLoading: turnOffLoading
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(inputForm)
