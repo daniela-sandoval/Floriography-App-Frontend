@@ -12,11 +12,13 @@ class BouquetDiv extends Component {
   state = {
     prompt: false,
     delete: false,
-    emailModal: false
+    emailModal: false,
+    sent: false
   }
 
   componentDidMount() {
     this.props.getFavorites(this.props.currentId)
+    this.setState({sent: false})
   }
 
   handleDate = () => {
@@ -49,8 +51,10 @@ class BouquetDiv extends Component {
     this.setState({emailModal: !this.state.emailModal})
   }
 
-  sendEmail = (email) => {
-    this.props.sendEmail(this.props.currentId, email, this.props.id)
+  sendEmail = async(email) => {
+    await this.props.sendEmail(this.props.currentId, email, this.props.id)
+    this.setState({emailModal: !this.state.emailModal})
+    this.setState({sent: true})
   }
 
   render() {
@@ -75,10 +79,10 @@ class BouquetDiv extends Component {
             </div>
             <footer>
               <button className="icon-btn">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
+                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className={"fa fa-star"}> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
               </button><br/>
               <button className="icon-btn">
-                <i onClick={this.toggleEmailForm} className="fa fa-envelope-o"> Email?</i>
+                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}> {this.state.sent ? "Sent!" : "Email?"}</i>
               </button>
               {this.handleDate()}
             </footer>

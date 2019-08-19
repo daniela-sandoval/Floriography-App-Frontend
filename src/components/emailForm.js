@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import '../Stylesheets/emailForm.scss'
 
 class EmailForm extends Component {
