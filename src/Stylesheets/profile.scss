@@ -6,5 +6,23 @@
     background: #e97878;
     flex: 1;
     padding: 3rem;
+    .user-info {
+      border: 2px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+      .edit-user {
+        margin: 10px;
+        .edit-close-btn {
+          float: right;
+        }
+      }
+      .pencil-icon {
+        float: right;
+        zoom: 1.3;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

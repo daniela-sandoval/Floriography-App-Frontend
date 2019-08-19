@@ -35,7 +35,6 @@ export const newUserFetch = userInfo => {
       })
       .then(resp => resp.json())
       .then(data => {
-        debugger
         if(data.token) {
           localStorage.token = data.token
           dispatch({type: "LOGIN_USER", payload: data})
@@ -69,5 +68,55 @@ export const logOutUser = () => {
     dispatch({type: "LOG_OUT_USER"})
     dispatch({type: "LOG_OUT_FAVS"})
     dispatch({type: "LOG_OUT_BOUQUETS"})
+  }
+}
+
+export const sendEmail = (userId, emailTo, bouquetId) => {
+  debugger
+  return dispatch => {
+    return fetch("http://localhost:3000/send_email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        email_to: emailTo,
+        bouquet: bouquetId
+      })
+    })
+  }
+}
+
+export const updateUserInfo = (newUsername, newEmail, id) => {
+  debugger
+  return dispatch => {
+    return fetch(`http://localhost:3000/users/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: newUsername,
+        email: newEmail
+      })
+    })
+    .then(resp => resp.json())
+    .then(user => {
+      dispatch({type: "UPDATE_USER_INFO", payload: user})
+    })
+  }
+}
+
+export const deleteAccount = userId => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/users/${userId}`, {
+      method: "DELETE"
+    })
+    .then( localStorage.clear(),
+      dispatch({type: "LOG_OUT_USER"}),
+      dispatch({type: "LOG_OUT_FAVS"}),
+      dispatch({type: "LOG_OUT_BOUQUETS"})
+    )
   }
 }

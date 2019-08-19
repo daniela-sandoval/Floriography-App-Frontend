@@ -4,16 +4,21 @@ import { connect } from 'react-redux';
 import FlowerCircle from './flowerCircle';
 import { deleteBouquet } from '../actions/bouquetActions';
 import { makeFav, deleteFav, getFavorites } from '../actions/favActions';
+import { sendEmail } from '../actions/userActions'
+import EmailForm from './emailForm'
 import "../Stylesheets/bouquetDiv.scss";
 
 class BouquetDiv extends Component {
   state = {
     prompt: false,
-    delete: false
+    delete: false,
+    emailModal: false,
+    sent: false
   }
 
   componentDidMount() {
     this.props.getFavorites(this.props.currentId)
+    this.setState({sent: false})
   }
 
   handleDate = () => {
@@ -42,6 +47,15 @@ class BouquetDiv extends Component {
     this.props.deleteBouquet(this.props.id)
   }
 
+  toggleEmailForm = () => {
+    this.setState({emailModal: !this.state.emailModal})
+  }
+
+  sendEmail = async(email) => {
+    await this.props.sendEmail(this.props.currentId, email, this.props.id)
+    this.setState({emailModal: !this.state.emailModal})
+    this.setState({sent: true})
+  }
 
   render() {
     const makeCircles = () => {
@@ -64,13 +78,17 @@ class BouquetDiv extends Component {
               {makeCircles()}
             </div>
             <footer>
-              <button className="fav">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
+              <button className="icon-btn">
+                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className={"fa fa-star"}> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
               </button><br/>
+              <button className="icon-btn">
+                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}> {this.state.sent ? "Sent!" : "Email?"}</i>
+              </button>
               {this.handleDate()}
             </footer>
           </div>
         }
+        {this.state.emailModal ? <EmailForm onSubmit={this.toggleEmailForm} sendEmail={this.sendEmail}/> : null}
       </div>
     )
   }
@@ -88,7 +106,8 @@ const mapDispatchToProps = {
   deleteBouquet: deleteBouquet,
   makeFav: makeFav,
   deleteFav: deleteFav,
-  getFavorites: getFavorites
+  getFavorites: getFavorites,
+  sendEmail: sendEmail
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BouquetDiv)
