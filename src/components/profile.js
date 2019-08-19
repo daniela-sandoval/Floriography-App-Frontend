@@ -10,12 +10,17 @@ import "../Stylesheets/profile.scss";
 class Profile extends Component {
   state = {
     adjective: false,
-    input: false
+    input: false,
+    editForm: false,
+    username: "",
+    email: ""
   }
 
-  componentDidMount() {
-    this.props.getProfile()
+  async componentDidMount() {
+    await this.props.getProfile()
+    this.setState({username: this.props.username, email: this.props.email})
   }
+
   handleClick = event => {
     this.setState({[event.target.className]: !this.state[event.target.className]})
   }
@@ -24,12 +29,37 @@ class Profile extends Component {
     this.props.makeRandomBouquet(this.props.id)
   }
 
+  handleEdit = () => {
+    this.setState({editForm: !this.state.editForm})
+  }
+
+  handleChange = (event) => {
+    this.setState({[event.target.id]: event.target.value})
+  }
+
   render () {
     return (
       <div className="Profile">
         <div className="SideBar">
-          <h1>{this.props.username}</h1>
-          <p>User Email: {this.props.email}</p>
+          <div className="user-info">
+            {this.state.editForm ?
+            <form className="edit-user">
+              <label htmlFor="username">Username: </label>
+              <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
+              <label htmlFor="email">Your Email: </label>
+              <input onChange={this.handleChange} id="email" type="text" value={this.state.email}/>
+              <input type="submit"/>
+            </form>
+            :
+            <div>
+              <button onClick={this.handleEdit}className="pencil-icon">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <h1>{this.props.username}</h1>
+              <p>User Email: {this.props.email}</p>
+            </div>
+            }
+          </div>
           <button className="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
           <button className="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
           <button className="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
