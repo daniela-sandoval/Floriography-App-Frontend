@@ -16,7 +16,7 @@ class FlowerApp extends Component {
 
   render () {
     return (
-      <div>
+      <div className="flower-app">
         <Navbar/>
         <Switch>
           <Route path="/flowerapp/profile" component={ Profile }/>

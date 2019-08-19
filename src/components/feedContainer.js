@@ -16,14 +16,13 @@ class BouquetContainer extends Component {
       }
       return (
         <div className="bouquet-container">
-          <h4>EVERYONE'S STUFF: </h4>
           <div className="feed-box">
             {makeBouquets()}
           </div>
         </div>
       )
     } else {
-    return null
+    return <div className="nothing">nothing just yet...how about you try making something?</div>
     }
   }
 }

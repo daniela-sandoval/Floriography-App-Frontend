@@ -66,6 +66,7 @@ class Profile extends Component {
             {this.state.editForm ?
             <form onSubmit={this.handleSubmit}className="edit-user">
               <span onClick={this.handleEdit} className="edit-close-btn">&times;</span><br/>
+              <h4>Edit Your Profile!</h4>
               <label htmlFor="username">Username: </label>
               <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
               <label htmlFor="email">Your Email: </label>
