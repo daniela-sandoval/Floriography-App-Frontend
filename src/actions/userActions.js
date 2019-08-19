@@ -71,3 +71,20 @@ export const logOutUser = () => {
     dispatch({type: "LOG_OUT_BOUQUETS"})
   }
 }
+
+export const sendEmail = (userId, emailTo, bouquetId) => {
+  debugger
+  return dispatch => {
+    return fetch("http://localhost:3000/send_email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        email_to: emailTo,
+        bouquet: bouquetId
+      })
+    })
+  }
+}

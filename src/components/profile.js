@@ -10,8 +10,7 @@ import "../Stylesheets/profile.scss";
 class Profile extends Component {
   state = {
     adjective: false,
-    input: false,
-    random: false
+    input: false
   }
 
   componentDidMount() {
@@ -30,6 +29,7 @@ class Profile extends Component {
       <div className="Profile">
         <div className="SideBar">
           <h1>{this.props.username}</h1>
+          <p>User Email: {this.props.email}</p>
           <button className="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
           <button className="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
           <button className="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
