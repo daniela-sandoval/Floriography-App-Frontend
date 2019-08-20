@@ -8,6 +8,7 @@ export default class Garden extends Component {
   render() {
     return (
       <div className="garden">
+        <h1>Explore Our Flowers!</h1>
         <SearchForm />
         <ToneList />
         <FlowerHolder />

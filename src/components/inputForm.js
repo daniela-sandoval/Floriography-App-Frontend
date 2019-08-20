@@ -44,13 +44,13 @@ class inputForm extends Component {
           <h4>pls type a sentence</h4>
           <p>{this.state.errorStat ?  this.props.error : null}</p>
           <form className="input" onSubmit={this.handleSubmit}>
-            <label htmlFor="title">Your Title: </label>
-            <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="Title your bouquet!"/><br/>
+            <label htmlFor="title">Title Your Bouquet</label><br/>
+            <input name="title" id="title" type="text" onChange={this.handleChange} value={this.state.title} placeholder="enter a title!"/><br/>
 
-            <label htmlFor="sentence">Your Sentence: </label>
-            <input name="sentence" id="sentence" type="text" onChange={this.handleChange} value={this.state.sentence} placeholder="enter a phrase!"/>
+            <label htmlFor="sentence">Your Sentence</label><br/>
+            <input name="sentence" id="sentence" type="text" onChange={this.handleChange} value={this.state.sentence} placeholder="enter a phrase!"/><br/>
 
-            <input type="submit"/>
+            <input id="submit-btn" type="submit"/>
           </form>
         </div>
     </div>

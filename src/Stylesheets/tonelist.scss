@@ -13,5 +13,9 @@
     font-weight: bold;
     cursor: pointer;
     box-shadow: 3px 3px #615858;
+    zoom: 0.8;
+    &:hover {
+      color: #3d407d;
+    }
   }
 }

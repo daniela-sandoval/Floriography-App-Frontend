@@ -1,26 +1,102 @@
 .Profile {
   display: flex;
-  background: blue;
+  background: #99EDE3;
   height: 100%;
+  padding-top: 3em;
   .SideBar {
-    background: #e97878;
     flex: 1;
-    padding: 3rem;
-    .user-info {
-      border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    width: 20vw;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    zoom: 0.6;
+    border: 3px solid #9EA2F2;
+    background-color: #C6C6F7;
+    border-radius: 20px;
+    box-shadow: 6px 6px #808080b5;
+    #adj-btn, #input-btn, #random-btn, #delete-btn, .pencil-icon, #submit-user-edit {
+      border: 2px solid #e97878;
+      border-radius: 5px;
       padding: 10px;
+      margin: 10px;
+      background-color: #e97878;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 3px 3px #615858;
+      &:hover {
+        color: #3d407d;
+      }
+    }
+    .user-info {
+      background-color: #e2e2f3;
+      border-radius: 10px;
+      padding: 15px;
       margin-bottom: 10px;
+      overflow-wrap: break-word;
+      font-size: 20px;
       .edit-user {
         margin: 10px;
         .edit-close-btn {
           float: right;
+          zoom: 1.5;
+          color: #3d407d;
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          &:hover {
+            color: #D02DE2;
+            background-color: #9EA2F2;
+            border-radius: 25px;
+            cursor: pointer;
+          }
+        }
+        form {
+          font-size: 23px;
+          #username, #email {
+            font-size: 12px;
+            zoom: 1.3;
+            padding: 6px;
+            text-align: center;
+            border-radius: 9px;
+            border-style: none;
+            border: 3px solid #9EA2F2;
+          }
+          #email {
+            width: 90%;
+          }
+          #username {
+            width: 50%;
+          }
         }
       }
       .pencil-icon {
         float: right;
-        zoom: 1.3;
         &:hover {
           cursor: pointer;
+        }
+      }
+    }
+    .delete-prompt {
+      font-size: 22px;
+      text-align: center;
+      button {
+        margin-left: 10px;
+        border: 2px solid #e97878;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        background-color: #e97878;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 3px 3px #615858;
+        &:hover {
+          color: #3d407d;
         }
       }
     }

@@ -1,10 +1,3 @@
-// .flower-circle {
-//   // border: 1px solid red;
-//   border-radius: 50%;
-//   display: inline-block;
-//   overflow: hidden;
-// }
-
 .box {
   position: relative;
   margin: 10px;
@@ -12,40 +5,33 @@
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    height: 220px;
-    width: 220px;
+    height: 120px;
+    width: 120px;
     opacity: 1;
     display: block;
-    transition: .4s ease;
+    transition: .5s;
     backface-visibility: hidden;
   }
   .middle {
-    transition: .4s ease;
-   opacity: 0;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   -ms-transform: translate(-50%, -50%);
-   text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
   }
+
   &:hover .flwr-img{
-    filter: blur(4px) grayscale(3);
+    filter: blur(4px) grayscale(2);
   }
+
   &:hover .middle {
     opacity: 1;
-    color: white;
-    font-size: 20px;
+    color: black;
+    font-size: 11px;
+    font-weight: bold;
     padding: 16px 32px;
   }
 }
-
-
-
-// #flwr-name {
-//   filter: none;
-//   position: absolute;
-//   font-size: 20px;
-//   font-weight: bold;
-//   color: white;
-// }

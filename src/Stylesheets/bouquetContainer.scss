@@ -1,10 +1,22 @@
 .bouquet-container {
   flex: 3;
-  background: #a8dbe7;
-  padding: 3rem;
-  border: 3px solid black;
+  padding: 25px;
   overflow: auto;
-  .bouquet-box {
-    border: 3px solid black;
+  margin-left: 350px;
+  .profile-btns {
+    border: 2px solid #e97878;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #e97878;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px #615858;
+    &:hover {
+      color: #3d407d;
+    }
   }
 }
+// background: #99EDE3;

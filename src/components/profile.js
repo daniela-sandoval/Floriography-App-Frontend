@@ -64,17 +64,19 @@ class Profile extends Component {
         <div className="SideBar">
           <div className="user-info">
             {this.state.editForm ?
-            <form onSubmit={this.handleSubmit}className="edit-user">
-              <span onClick={this.handleEdit} className="edit-close-btn">&times;</span><br/>
-              <h4>Edit Your Profile!</h4>
-              <label htmlFor="username">Username: </label>
-              <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
-              <label htmlFor="email">Your Email: </label>
-              <input onChange={this.handleChange} id="email" type="text" value={this.state.email}/>
-              <input type="submit"/>
-            </form>
+            <div className="edit-user">
+              <span onClick={this.handleEdit} className="edit-close-btn">&times;</span>
+              <form onSubmit={this.handleSubmit}>
+                <h4>Edit Your Profile!</h4>
+                <label htmlFor="username">Username</label><br/>
+                <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
+                <label htmlFor="email">Your Email</label><br/>
+                <input onChange={this.handleChange} id="email" type="text" value={this.state.email}/><br/>
+                <input id="submit-user-edit" type="submit"/>
+              </form>
+            </div>
             :
-            <div>
+            <div className="sidebar-box">
               <button onClick={this.handleEdit} className="pencil-icon">
                 <i className="fa fa-pencil" aria-hidden="true"></i>
               </button>
@@ -83,19 +85,19 @@ class Profile extends Component {
             </div>
             }
           </div>
-          <button className="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
-          <button className="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
-          <button className="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
+          <button id="adj-btn" className="adjective" onClick={this.handleClick}>ADJ BOUQUET</button><br/>
+          <button id="input-btn" className="input" onClick={this.handleClick}>INPUT BOUQUET</button><br/>
+          <button id="random-btn"className="random" onClick={this.handleRandom}>RANDOM BOUQUET</button><br/>
           <br/>
           <br/>
           {this.state.deletePrompt ?
-            <div>
-              <p>Are you sure??</p>
+            <div className="delete-prompt">
+              <p>Are you sure?</p>
               <button onClick={this.actuallyDelete}>YES</button>
               <button onClick={this.handleDelete}>NO</button>
             </div>
             :
-            <button onClick={this.handleDelete}>Delete Your Account?</button>
+            <button id="delete-btn" onClick={this.handleDelete}>DELETE ACCOUNT ?</button>
           }
           {this.state.adjective ?
             <AdjForm submitClick={this.handleClick}/>

@@ -15,7 +15,7 @@ class BouquetContainer extends Component {
         return this.props.bouquets.map(bouquet => <FeedDiv key={bouquet.id} {...bouquet}/>)
       }
       return (
-        <div className="bouquet-container">
+        <div className="feed-container">
           <div className="feed-box">
             {makeBouquets()}
           </div>

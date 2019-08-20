@@ -30,7 +30,7 @@ class Adjective extends Component {
     return <div className="adj"
       id={this.props.name}
       onClick={this.handleClick}
-      style={ this.state.clicked ? {color: "red"} : null } >{this.props.name}
+      style={ this.state.clicked ? {color: "#03626f"} : null } >{this.props.name}
     </div>
   }
 }

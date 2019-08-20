@@ -10,7 +10,6 @@ import "../Stylesheets/bouquetDiv.scss";
 
 class BouquetDiv extends Component {
   state = {
-    prompt: false,
     delete: false,
     emailModal: false,
     sent: false
@@ -23,7 +22,7 @@ class BouquetDiv extends Component {
 
   handleDate = () => {
     let dateToFormat = this.props.created_at
-    return <Moment format="LLLL">{dateToFormat}</Moment>
+    return <Moment className="time-made" format="LLLL">{dateToFormat}</Moment>
   }
 
   handleClick = () => {
@@ -62,7 +61,7 @@ class BouquetDiv extends Component {
       return this.props.bouquet_flowers.map(flower => <FlowerCircle key={flower.id} {...flower}/>)
     }
     return (
-      <div className="bouquet-div">
+      <div className="bouquet">
         {this.state.delete ?
           <div className="prompt">
             <h3>Are you sure?</h3>
@@ -70,19 +69,26 @@ class BouquetDiv extends Component {
             <button onClick={this.buttonClick}>No</button>
           </div>
           :
-          <div>
+          <div className="bouquet-div">
             <span onClick={this.handleClick} className="close-div">&times;</span>
-            <header>{this.props.name}</header>
-            <p>Made by: {this.props.username}</p>
+            <div className="header">{this.props.name}
+              <p>made by: {this.props.username}</p>
+            </div>
             <div className="flower-con">
               {makeCircles()}
             </div>
             <footer>
-              <button className="icon-btn">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className={"fa fa-star"}> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
-              </button><br/>
-              <button className="icon-btn">
-                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}> {this.state.sent ? "Sent!" : "Email?"}</i>
+              {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ?
+                <button className="footer-btn" onClick={this.unfavClick}>
+                  <i className="fa fa-star"></i> Saved!
+                </button>
+                :
+                <button className="footer-btn" onClick={this.favClick}>
+                  <i className="fa fa-star-o"></i> Favorite
+                </button>
+              }
+              <button className="footer-btn">
+                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}></i> {this.state.sent ? "Sent!" : "Email?"}
               </button>
               {this.handleDate()}
             </footer>
