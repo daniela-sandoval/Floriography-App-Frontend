@@ -1,12 +1,14 @@
 .box {
   position: relative;
   margin: 10px;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
   .flwr-img {
     background-size: cover;
     background-position: center;
-    border-radius: 50%;
     height: 120px;
-    width: 120px;
     opacity: 1;
     display: block;
     transition: .5s;
