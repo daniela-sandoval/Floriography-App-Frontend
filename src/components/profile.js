@@ -83,9 +83,9 @@ class Profile extends Component {
             </div>
             }
           </div>
-          <button id="adj-btn" className="adjective" onClick={this.handleClick}>MAKE ADJ BOUQUET</button><br/>
-          <button id="input-btn" className="input" onClick={this.handleClick}>MAKE INPUT BOUQUET</button><br/>
-          <button id="random-btn"className="random" onClick={this.handleRandom}>MAKE RANDOM BOUQUET</button><br/>
+          <button id="adj-btn" className="adjective" onClick={this.handleClick}>ADJ BOUQUET</button><br/>
+          <button id="input-btn" className="input" onClick={this.handleClick}>INPUT BOUQUET</button><br/>
+          <button id="random-btn"className="random" onClick={this.handleRandom}>RANDOM BOUQUET</button><br/>
           <br/>
           <br/>
           {this.state.deletePrompt ?
@@ -95,7 +95,7 @@ class Profile extends Component {
               <button onClick={this.handleDelete}>NO</button>
             </div>
             :
-            <button id="delete-btn" onClick={this.handleDelete}>Delete Your Account?</button>
+            <button id="delete-btn" onClick={this.handleDelete}>DELETE ACCOUNT ?</button>
           }
           {this.state.adjective ?
             <AdjForm submitClick={this.handleClick}/>

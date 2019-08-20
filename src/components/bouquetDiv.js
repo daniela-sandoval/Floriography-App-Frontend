@@ -10,7 +10,6 @@ import "../Stylesheets/bouquetDiv.scss";
 
 class BouquetDiv extends Component {
   state = {
-    prompt: false,
     delete: false,
     emailModal: false,
     sent: false

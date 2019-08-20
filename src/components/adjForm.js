@@ -49,12 +49,16 @@ class AdjForm extends Component {
             <div className="modal-content">
               <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
               <h4>pls choose 5 adjectives</h4>
-              <label htmlFor="title">Your Title: </label>
-              <input name="title" id="title" type="text" onChange={this.handleChange}/>
-              <div className="adj-con">
-                {makeAdjs()}
+              <div className="adj-form-box">
+                <div className="title-bouquet">
+                  <label htmlFor="title">Title Your Bouquet: </label><br/>
+                  <input name="title" id="title" type="text" onChange={this.handleChange}/>
+                </div>
+                <div className="adj-con">
+                  {makeAdjs()}
+                </div>
+                <button className="adjective" onClick={this.handleClick}>SUBMIT</button>
               </div>
-              <button className="adjective" onClick={this.handleClick}>SUBMIT</button>
             </div>
         </div>
       )
