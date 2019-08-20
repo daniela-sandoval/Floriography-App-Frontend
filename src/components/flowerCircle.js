@@ -6,7 +6,8 @@ class FlowerCircle extends Component {
   render() {
     return (
       <div className="box">
-        <img src={this.props.img_url} alt="a flower" className="flwr-img"/>
+        <div style={{backgroundImage: `url(${this.props.img_url})`}} className="flwr-img">
+        </div>
         <div className="middle">{this.props.name}
             <p>{this.props.meaning}</p>
         </div>
@@ -18,7 +19,7 @@ class FlowerCircle extends Component {
 export default FlowerCircle
 
 
-
+// <img src={this.props.img_url} alt="a flower" className="flwr-img"/>
 
 
 // <div onMouseEnter={this.handleHover} className="box">
