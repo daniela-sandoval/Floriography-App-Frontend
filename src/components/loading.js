@@ -16,8 +16,9 @@ class Loading extends Component {
   }
 
   render () {
+
     return (
-      <div className="plant-load">
+      <div className="loading-div">
         <img className="the-plant" src={ plant } alt="green-plant"/>
         <p>LOADING PLS WAIT</p>
       </div>

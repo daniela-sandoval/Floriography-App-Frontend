@@ -1,11 +1,21 @@
-.plant-load {
+.loading-div {
+  border: 3px solid #9EA2F2;
+  background-color: #C6C6F7;
+  border-radius: 20px;
+  margin: 27px;
+  padding: 10px;
+  box-shadow: 6px 6px #808080b5;
+  zoom: 0.8;
+  width: 70%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
   .the-plant {
-    height: 250px;
+    height: 150px;
     // animation: colorchange 7s;
+  }
+  p {
+    text-align: center;
   }
 }
 
