@@ -29,8 +29,8 @@ class FavDiv extends Component {
           {makeCircles()}
         </div>
         <footer>
-          <button className="icon-btn">
-            {this.props.userFavs.some(fav => fav.id === this.props.id) ? <i onClick={this.deleteDiv} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
+          <button className="footer-btn" onClick={this.deleteDiv}>
+            <i className="fa fa-star"></i> Saved!
           </button>
           {this.handleDate()}
         </footer>

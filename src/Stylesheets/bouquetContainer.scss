@@ -2,6 +2,21 @@
   flex: 3;
   padding: 25px;
   overflow: auto;
-  margin-left: 180px;
+  margin-left: 350px;
+  .profile-btns {
+    border: 2px solid #e97878;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #e97878;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px #615858;
+    &:hover {
+      color: #3d407d;
+    }
+  }
 }
 // background: #99EDE3;

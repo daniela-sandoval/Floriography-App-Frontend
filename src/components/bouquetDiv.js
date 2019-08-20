@@ -79,11 +79,17 @@ class BouquetDiv extends Component {
               {makeCircles()}
             </div>
             <footer>
-              <button className="icon-btn">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className={"fa fa-star"}> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
-              </button>
-              <button className="icon-btn">
-                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}> {this.state.sent ? "Sent!" : "Email?"}</i>
+              {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ?
+                <button className="footer-btn" onClick={this.unfavClick}>
+                  <i className="fa fa-star"></i> Saved!
+                </button>
+                :
+                <button className="footer-btn" onClick={this.favClick}>
+                  <i className="fa fa-star-o"></i> Favorite
+                </button>
+              }
+              <button className="footer-btn">
+                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}></i> {this.state.sent ? "Sent!" : "Email?"}
               </button>
               {this.handleDate()}
             </footer>

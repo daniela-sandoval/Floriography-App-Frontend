@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import FlowerCircle from './flowerCircle'
 import { deleteBouquet, updateFeed } from '../actions/bouquetActions'
 import { makeFav, getFavorites, deleteFav } from '../actions/favActions'
-import "../Stylesheets/bouquetDiv.scss"
+import "../Stylesheets/feedDiv.scss"
 
 class FeedDiv extends Component {
   state = {
@@ -57,7 +57,7 @@ class FeedDiv extends Component {
             <button onClick={this.buttonClick}>No</button>
           </div>
           :
-          <div className="bouquet-div">
+          <div className="feed-div">
             {this.props.currentId === this.props.user.user_id ? <span onClick={this.handleClick} className="close-div">&times;</span> : null}
             <div className="header">{this.props.name}
               <p>made by: {this.props.user.user_name}</p>
@@ -66,9 +66,15 @@ class FeedDiv extends Component {
               {makeCircles()}
             </div>
             <footer>
-              <button className="icon-btn">
-                {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ? <i onClick={this.unfavClick} className="fa fa-star"> Saved!</i> : <i onClick={this.favClick} className="fa fa-star-o"> Favorite</i>}
-              </button>
+              {this.props.userFavs.some(fav => fav.bouquet_id === this.props.id) ?
+                <button className="feed-btn" onClick={this.unfavClick}>
+                  <i className="fa fa-star"></i> Saved!
+                </button>
+                :
+                <button className="feed-btn" onClick={this.favClick}>
+                  <i className="fa fa-star-o"></i> Favorite
+                </button>
+              }
             {this.handleDate()}
             </footer>
           </div>

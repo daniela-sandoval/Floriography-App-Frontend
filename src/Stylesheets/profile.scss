@@ -16,12 +16,28 @@
     background-color: #C6C6F7;
     border-radius: 20px;
     box-shadow: 6px 6px #808080b5;
+    #adj-btn, #input-btn, #random-btn, #delete-btn, .pencil-icon {
+      border: 2px solid #e97878;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      background-color: #e97878;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 3px 3px #615858;
+      &:hover {
+        color: #3d407d;
+      }
+    }
     .user-info {
       background-color: #e2e2f3;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       margin-bottom: 10px;
       overflow-wrap: break-word;
+      font-size: 20px;
       .edit-user {
         margin: 10px;
         .edit-close-btn {
@@ -30,7 +46,6 @@
       }
       .pencil-icon {
         float: right;
-        zoom: 1.3;
         &:hover {
           cursor: pointer;
         }

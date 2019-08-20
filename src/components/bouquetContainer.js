@@ -31,9 +31,9 @@ class BouquetContainer extends Component {
     }
     return (
       <div className="bouquet-container">
-        <div className="profile-btns">
-          <button style={this.state.user ? {color: "red"} : null} onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
-          <button className="icon-btns"style={this.state.favs ? {color: "red"} : null} onClick={this.handleClick}>YOUR FAVORITES</button>
+        <div>
+          <button className="profile-btns" style={this.state.user ? {color: "#3d407d"} : null} onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
+          <button className="profile-btns" style={this.state.favs ? {color: "#3d407d"} : null} onClick={this.handleClick}>YOUR FAVORITES</button>
         </div>
         {this.props.loading ? <Loading /> : null}
         {makeBouquets()}
