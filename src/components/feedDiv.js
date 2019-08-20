@@ -51,7 +51,7 @@ class FeedDiv extends Component {
     return (
       <div className="bouquet">
         {this.state.delete ?
-          <div className="prompt">
+          <div className="feed-prompt">
             <h3>Are you sure?</h3>
             <button onClick={this.deleteDiv}>Yes</button>
             <button onClick={this.buttonClick}>No</button>

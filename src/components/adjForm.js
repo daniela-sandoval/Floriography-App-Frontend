@@ -57,7 +57,7 @@ class AdjForm extends Component {
                 <div className="adj-con">
                   {makeAdjs()}
                 </div>
-                <button className="adjective" onClick={this.handleClick}>SUBMIT</button>
+                <button id="submit-btn" className="adjective" onClick={this.handleClick}>SUBMIT</button>
               </div>
             </div>
         </div>

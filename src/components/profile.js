@@ -64,17 +64,19 @@ class Profile extends Component {
         <div className="SideBar">
           <div className="user-info">
             {this.state.editForm ?
-            <form onSubmit={this.handleSubmit}className="edit-user">
-              <span onClick={this.handleEdit} className="edit-close-btn">&times;</span><br/>
-              <h4>Edit Your Profile!</h4>
-              <label htmlFor="username">Username: </label>
-              <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
-              <label htmlFor="email">Your Email: </label>
-              <input onChange={this.handleChange} id="email" type="text" value={this.state.email}/>
-              <input type="submit"/>
-            </form>
+            <div className="edit-user">
+              <span onClick={this.handleEdit} className="edit-close-btn">&times;</span>
+              <form onSubmit={this.handleSubmit}>
+                <h4>Edit Your Profile!</h4>
+                <label htmlFor="username">Username</label><br/>
+                <input onChange={this.handleChange} id="username" type="text" value={this.state.username}/><br/><br/>
+                <label htmlFor="email">Your Email</label><br/>
+                <input onChange={this.handleChange} id="email" type="text" value={this.state.email}/><br/>
+                <input id="submit-user-edit" type="submit"/>
+              </form>
+            </div>
             :
-            <div>
+            <div className="sidebar-box">
               <button onClick={this.handleEdit} className="pencil-icon">
                 <i className="fa fa-pencil" aria-hidden="true"></i>
               </button>
@@ -89,8 +91,8 @@ class Profile extends Component {
           <br/>
           <br/>
           {this.state.deletePrompt ?
-            <div>
-              <p>Are you sure??</p>
+            <div className="delete-prompt">
+              <p>Are you sure?</p>
               <button onClick={this.actuallyDelete}>YES</button>
               <button onClick={this.handleDelete}>NO</button>
             </div>

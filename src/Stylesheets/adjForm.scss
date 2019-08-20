@@ -19,11 +19,17 @@
     zoom: 1.5;
     #close {
       zoom: 1.5;
-      color: black;
+      color: #672f2f;
       float: right;
+      margin: 3px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
       &:hover {
-        color: cyan;
+        color: #C6C6F7;
+        background-color: #9a5454;
         cursor: pointer;
+        border-radius: 25px;
       }
     }
     h4 {
@@ -43,9 +49,9 @@
       margin: 15px;
       .title-bouquet {
         text-align: center;
-        margin: 14px;
+        margin: 20px;
         label {
-          font-size: 15px;
+          font-size: 20px;
         }
         #title {
           zoom: 1.2;
@@ -64,6 +70,21 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         margin: 10px;
+      }
+
+      #submit-btn {
+        zoom: 1.4;
+        margin-right: 10px;
+        border: 2px solid #9ea2f2;
+        border-radius: 5px;
+        background-color: #9ea2f2;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 3px 3px #615858;
+        &:hover {
+          color: #9a5454;
+        }
       }
     }
 

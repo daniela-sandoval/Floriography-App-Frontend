@@ -6,4 +6,5 @@ html, #root, body {
 
 .flower-app {
   height: 100%;
+  /* filter: blur(4px) grayscale(3); */
 }
