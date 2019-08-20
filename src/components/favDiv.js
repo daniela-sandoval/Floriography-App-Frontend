@@ -13,7 +13,7 @@ class FavDiv extends Component {
 
   handleDate = () => {
     let dateToFormat = this.props.created_at
-    return <Moment format="LLLL">{dateToFormat}</Moment>
+    return <Moment className="time-made" format="LLLL">{dateToFormat}</Moment>
   }
 
   render() {
@@ -22,15 +22,16 @@ class FavDiv extends Component {
     }
     return (
       <div className="bouquet-div">
-        <header>{this.props.name}</header>
-        <p>Made by: {this.props.user.user_name}</p>
+        <div className="header">{this.props.name}
+          <p>made by: {this.props.user.user_name}</p>
+        </div>
         <div className="flower-con">
           {makeCircles()}
         </div>
         <footer>
           <button className="icon-btn">
             {this.props.userFavs.some(fav => fav.id === this.props.id) ? <i onClick={this.deleteDiv} className="fa fa-star"> Saved!</i> : <i onClick={event => {this.favClick(this.props.id)}} className="fa fa-star-o"> Favorite</i>}
-          </button><br/>
+          </button>
           {this.handleDate()}
         </footer>
       </div>

@@ -1,15 +1,20 @@
 .Profile {
   display: flex;
-  background: blue;
+  background: #99EDE3;
   height: 100%;
   .SideBar {
-    background: #e97878;
     flex: 1;
-    padding: 3rem;
+    padding: 20px;
+    width: 18vw;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    zoom: 0.6;
     .user-info {
       border: 2px solid black;
       padding: 10px;
       margin-bottom: 10px;
+      overflow-wrap: break-word;
       .edit-user {
         margin: 10px;
         .edit-close-btn {

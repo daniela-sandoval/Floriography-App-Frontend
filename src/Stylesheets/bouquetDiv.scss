@@ -1,32 +1,70 @@
 .bouquet-div {
-  border: 3px solid black;
+  border: 3px solid #9EA2F2;
+  background-color: #C6C6F7;
   border-radius: 20px;
-  margin: 1em;
+  margin: 27px;
   padding: 10px;
-  box-shadow: 5px 7px grey;
+  box-shadow: 6px 6px #808080b5;
+  zoom: 0.8;
   .flower-con {
     display: flex;
-    justify-content: space-evenly;
-    margin: 30px;
-    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #e2e2f3;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    zoom: 1.3;
   }
   .close-div {
-    zoom: 1.5;
-    color: black;
+    zoom: 1.7;
+    color: #3d407d;
     float: right;
+    margin: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
     &:hover {
-      color: red;
+      color: #D02DE2;
+      background-color: #9EA2F2;
+      border-radius: 25px;
       cursor: pointer;
     }
   }
-  header {
+  .header {
     padding: 10px;
-  }
-  .prompt {
+    background-color: #e2e2f3;
+    border-radius: 10px;
+    width: 50%;
     text-align: center;
+    margin: 0 auto;
+    p {
+      margin: 0;
+      margin: 5px;
+    }
   }
 
   .icon-btn {
     zoom: 1.3;
+    margin-right: 10px;
   }
+
+  footer {
+    background-color: #e2e2f3;
+    border-radius: 10px;
+    padding: 15px;
+    .time-made {
+      float: right;
+    }
+  }
+}
+
+.prompt {
+  text-align: center;
+  border: 3px solid #9EA2F2;
+  background-color: #C6C6F7;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 10px;
+  box-shadow: 5px 7px grey;
 }
