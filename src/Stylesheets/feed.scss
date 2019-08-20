@@ -1,13 +1,20 @@
 .feed {
-  height: 100%;
   background-color: #99EDE3;
+  padding: 2em;
   h1 {
     margin: 0;
-    margin-bottom: 20px;
-    padding: 20px;
+    padding-top: 40px;
     text-align: center;
   }
   .nothing {
     text-align: center;
+  }
+  .feed-container {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    .feed-box {
+      width: 70%;
+    }
   }
 }

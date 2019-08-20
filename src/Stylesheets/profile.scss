@@ -2,16 +2,23 @@
   display: flex;
   background: #99EDE3;
   height: 100%;
+  padding-top: 3em;
   .SideBar {
     flex: 1;
+    margin: 20px;
     padding: 20px;
-    width: 18vw;
+    width: 20vw;
     position: fixed;
     z-index: 1;
     top: 100px;
     zoom: 0.6;
+    border: 3px solid #9EA2F2;
+    background-color: #C6C6F7;
+    border-radius: 20px;
+    box-shadow: 6px 6px #808080b5;
     .user-info {
-      border: 2px solid black;
+      background-color: #e2e2f3;
+      border-radius: 10px;
       padding: 10px;
       margin-bottom: 10px;
       overflow-wrap: break-word;
