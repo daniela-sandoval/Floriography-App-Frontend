@@ -26,13 +26,13 @@
   }
 
   &:hover .flwr-img{
-    filter: blur(4px) grayscale(2);
+    filter: blur(4px) opacity(30%);
   }
 
   &:hover .middle {
     opacity: 1;
-    color: black;
-    font-size: 11px;
+    color: #3d407d;
+    font-size: 12px;
     font-weight: bold;
     padding: 16px 32px;
   }

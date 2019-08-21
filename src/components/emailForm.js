@@ -23,11 +23,12 @@ class EmailForm extends Component {
       <div className="email-modal">
         <div className="email-content">
           <span className="email-close" onClick={this.props.onSubmit}>&times;</span>
-          <h4>EMAIL FORM</h4>
-          <p>Enter someone's email to send your bouquet to!</p>
-          <label htmlFor="email">Send to? </label>
-          <input onChange={this.handleChange}type="text"placeholder="example@email.com"/><br/>
-          <button onClick={this.handleSubmit}>SEND</button>
+          <h4>Send your bouquet to someone!</h4>
+          <div className="email-form">
+            <label htmlFor="email">Email</label><br/>
+            <input onChange={this.handleChange}type="text"placeholder="example@email.com"/><br/>
+            <button id="email-submit" onClick={this.handleSubmit}>SEND</button>
+          </div>
         </div>
       </div>
     )

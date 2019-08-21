@@ -50,7 +50,7 @@ class inputForm extends Component {
             <label htmlFor="sentence">Your Sentence</label><br/>
             <input name="sentence" id="sentence" type="text" onChange={this.handleChange} value={this.state.sentence} placeholder="enter a phrase!"/><br/>
 
-            <input id="submit-btn" type="submit"/>
+            <input id="submit-btn" type="submit" value="SUBMIT"/>
           </form>
         </div>
     </div>

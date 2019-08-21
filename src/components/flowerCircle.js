@@ -17,18 +17,3 @@ class FlowerCircle extends Component {
 }
 
 export default FlowerCircle
-
-
-// <img src={this.props.img_url} alt="a flower" className="flwr-img"/>
-
-
-// <div onMouseEnter={this.handleHover} className="box">
-//   <div style={{backgroundImage: `url(${this.props.img_url})`}} className="flwr-img">
-//   </div>
-//   {this.state.moreInfo ?
-//     <div onMouseLeave={this.handleHover} className="flwr-name">{this.props.name}
-//       <p>{this.props.meaning}</p>
-//     </div>
-//     : null
-//   }
-// </div>

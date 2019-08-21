@@ -5,7 +5,7 @@
   margin: 27px;
   padding: 10px;
   box-shadow: 6px 6px #808080b5;
-  zoom: 0.8;
+  zoom: 0.5;
   width: 70%;
   .flower-con {
     display: flex;
@@ -79,6 +79,7 @@
   margin: 1em;
   padding: 10px;
   box-shadow: 6px 6px #808080b5;
+  zoom: 0.5;
   width: 70%;
   button {
     margin-left: 10px;
@@ -91,7 +92,7 @@
     font-size: 10px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 6px 6px #808080b5;
+    box-shadow: 3px 3px #615858;
     &:hover {
       color: #3d407d;
     }

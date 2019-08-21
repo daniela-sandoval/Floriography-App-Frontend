@@ -1,7 +1,10 @@
 .feed {
-  background-color: #99EDE3;
+  background-color: #dedede;
   padding: 2em;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1 {
     margin: 0;
     padding-top: 40px;
@@ -11,11 +14,9 @@
     text-align: center;
   }
   .feed-container {
-    display: flex;
-    justify-content: center;
     overflow: auto;
     .feed-box {
-      width: 70%;
+      // width: 70%;
     }
   }
 }
