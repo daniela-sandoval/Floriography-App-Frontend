@@ -14,6 +14,9 @@
     box-shadow: 6px 6px #808080b5;
     padding: 40px;
     width: 50%;
+    h1 {
+      margin: 0;
+    }
     .user-forms {
       display: flex;
       justify-content: center;
@@ -28,6 +31,9 @@
         &:focus {
           border-style: none;
         }
+      }
+      h1 {
+        margin: 10px;
       }
     }
   }
