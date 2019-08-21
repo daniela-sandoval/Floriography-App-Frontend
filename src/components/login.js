@@ -15,13 +15,6 @@ class Login extends Component {
     })
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   this.props.userLoginFetch(this.state)
-  //   this.props.history.push("/flowerapp")
-  //
-  // }
-
     handleSubmit = async (event) => {
     event.preventDefault()
     await this.props.userLoginFetch(this.state)
@@ -35,11 +28,11 @@ class Login extends Component {
       <div className="login">
         <h1>LOGIN</h1>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username</label><br/>
           <input onChange={this.handleChange} name="username" id="username" type="text" placeholder="username"/><br/>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label><br/>
           <input onChange={this.handleChange} name="password" id="password" type="password" placeholder="password"/><br/>
-          <input type="submit" value="Submit!"/>
+          <input id="login-btn" type="submit" value="Submit!"/>
         </form>
       </div>
     )
