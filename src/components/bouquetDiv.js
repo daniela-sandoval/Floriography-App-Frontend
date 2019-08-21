@@ -87,8 +87,8 @@ class BouquetDiv extends Component {
                   <i className="fa fa-star-o"></i> Favorite
                 </button>
               }
-              <button className="footer-btn">
-                <i onClick={this.toggleEmailForm} className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}></i> {this.state.sent ? "Sent!" : "Email?"}
+              <button onClick={this.toggleEmailForm} className="footer-btn">
+                <i className={this.state.sent ? "fa fa-envelope": "fa fa-envelope-o"}></i> {this.state.sent ? "Sent!" : "Email?"}
               </button>
               {this.handleDate()}
             </footer>

@@ -31,7 +31,7 @@ class Profile extends Component {
   }
 
   handleEdit = () => {
-    this.setState({editForm: !this.state.editForm})
+    this.setState({editForm: !this.state.editForm, username: this.props.username, email: this.props.email})
   }
 
   handleChange = (event) => {
