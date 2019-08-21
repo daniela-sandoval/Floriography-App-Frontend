@@ -5,58 +5,15 @@
   margin: 27px;
   padding: 10px;
   box-shadow: 6px 6px #808080b5;
-  zoom: 0.8;
+  zoom: 0.5;
   width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   .the-plant {
     height: 150px;
-    // animation: colorchange 7s;
   }
   p {
     text-align: center;
   }
-}
-
-@keyframes colorchange {
-  // 0%   {filter: invert(45%) sepia(32%) saturate(920%) hue-rotate(49deg) brightness(97%) contrast(84%);}
-  // 2%  {filter: invert(55%) sepia(8%) saturate(3155%) hue-rotate(61deg) brightness(81%) contrast(100%);}
-  // 5%  {filter: invert(43%) sepia(7%) saturate(4745%) hue-rotate(77deg) brightness(97%) contrast(81%);}
-  // 7%  {filter: invert(44%) sepia(30%) saturate(875%) hue-rotate(98deg) brightness(95%) contrast(88%);}
-  // 9% {filter: invert(46%) sepia(21%) saturate(1224%) hue-rotate(114deg) brightness(92%) contrast(84%);}
-  // 11% {filter: invert(48%) sepia(20%) saturate(1257%) hue-rotate(129deg) brightness(91%) contrast(88%);}
-  // 15% {filter: invert(41%) sepia(31%) saturate(852%) hue-rotate(141deg) brightness(94%) contrast(89%);}
-  // 18% {filter: invert(31%) sepia(71%) saturate(466%) hue-rotate(151deg) brightness(101%) contrast(83%);}
-  // 21% {filter: invert(30%) sepia(90%) saturate(378%) hue-rotate(158deg) brightness(95%) contrast(87%);}
-  // 24% {filter: invert(29%) sepia(65%) saturate(529%) hue-rotate(166deg) brightness(96%) contrast(88%);}
-  // 27% {filter: invert(33%) sepia(10%) saturate(2959%) hue-rotate(171deg) brightness(93%) contrast(94%);}
-  // 30% {filter: invert(25%) sepia(14%) saturate(5240%) hue-rotate(192deg) brightness(91%) contrast(82%);}
-  // 33% {filter: invert(22%) sepia(73%) saturate(945%) hue-rotate(193deg) brightness(96%) contrast(90%);}
-  // 36% {filter: invert(14%) sepia(61%) saturate(3239%) hue-rotate(229deg) brightness(91%) contrast(90%);}
-  // 39% {filter: invert(22%) sepia(20%) saturate(5158%) hue-rotate(227deg) brightness(85%) contrast(105%);}
-  // 42% {filter: invert(12%) sepia(65%) saturate(5261%) hue-rotate(253deg) brightness(78%) contrast(84%);}
-  // 45% {filter: invert(14%) sepia(58%) saturate(3680%) hue-rotate(253deg) brightness(92%) contrast(88%);}
-  // 48% {filter: invert(23%) sepia(23%) saturate(4002%) hue-rotate(248deg) brightness(89%) contrast(99%);}
-  // 51% {filter: invert(18%) sepia(23%) saturate(6672%) hue-rotate(261deg) brightness(94%) contrast(90%);}
-  // 54% {filter: invert(17%) sepia(20%) saturate(7175%) hue-rotate(264deg) brightness(104%) contrast(90%);}
-  // 57% {filter: invert(19%) sepia(61%) saturate(1862%) hue-rotate(262deg) brightness(99%) contrast(95%);}
-  // 60% {filter: invert(22%) sepia(24%) saturate(5116%) hue-rotate(270deg) brightness(88%) contrast(92%);}
-  // 63% {filter: invert(20%) sepia(29%) saturate(4888%) hue-rotate(277deg) brightness(97%) contrast(89%);}
-  // 66% {filter: invert(20%) sepia(40%) saturate(3162%) hue-rotate(281deg) brightness(96%) contrast(90%);}
-  // 69% {filter: invert(21%) sepia(30%) saturate(3043%) hue-rotate(284deg) brightness(99%) contrast(92%);}
-  // 72% {filter: invert(21%) sepia(22%) saturate(4379%) hue-rotate(297deg) brightness(96%) contrast(89%);}
-  // 74% {filter: invert(21%) sepia(35%) saturate(2939%) hue-rotate(304deg) brightness(88%) contrast(88%);}
-  // 77% {filter: invert(21%) sepia(19%) saturate(4468%) hue-rotate(310deg) brightness(99%) contrast(91%);}
-  // 80% {filter: invert(23%) sepia(49%) saturate(1620%) hue-rotate(320deg) brightness(87%) contrast(95%);}
-  // 82% {filter: invert(21%) sepia(15%) saturate(7111%) hue-rotate(337deg) brightness(92%) contrast(86%);}
-  // 84% {filter: invert(29%) sepia(12%) saturate(2863%) hue-rotate(324deg) brightness(96%) contrast(92%);}
-  // 86% {filter: invert(35%) sepia(10%) saturate(2451%) hue-rotate(335deg) brightness(96%) contrast(102%);}
-  // 88% {filter: invert(39%) sepia(35%) saturate(758%) hue-rotate(347deg) brightness(87%) contrast(95%);}
-  // 90% {filter: invert(42%) sepia(13%) saturate(2049%) hue-rotate(358deg) brightness(93%) contrast(88%);}
-  // 92% {filter: invert(44%) sepia(11%) saturate(2730%) hue-rotate(7deg) brightness(95%) contrast(76%);}
-  // 94% {filter: invert(46%) sepia(42%) saturate(668%) hue-rotate(13deg) brightness(92%) contrast(84%);}
-  // 96% {filter: invert(42%) sepia(87%) saturate(320%) hue-rotate(20deg) brightness(103%) contrast(92%);}
-  // 98% {filter: invert(47%) sepia(68%) saturate(367%) hue-rotate(27deg) brightness(94%) contrast(99%);}
-  // 100% {filter: invert(47%) sepia(6%) saturate(3653%) hue-rotate(34deg) brightness(104%) contrast(104%);}
 }

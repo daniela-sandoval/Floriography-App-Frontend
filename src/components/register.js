@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { newUserFetch } from '../actions/userActions'
+import "../Stylesheets/register.scss"
 
 class Register extends Component {
   state = {
@@ -24,7 +25,7 @@ class Register extends Component {
 
   render () {
     return (
-      <div>
+      <div className="register">
         <h1>REGISTER</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="reg_username">Username:</label>

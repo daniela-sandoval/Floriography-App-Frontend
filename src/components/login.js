@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { userLoginFetch } from '../actions/userActions'
+import "../Stylesheets/login.scss"
 
 class Login extends Component {
   state = {
@@ -31,7 +32,7 @@ class Login extends Component {
 
   render () {
     return (
-      <div>
+      <div className="login">
         <h1>LOGIN</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username:</label>

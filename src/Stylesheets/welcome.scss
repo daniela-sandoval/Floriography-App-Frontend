@@ -1,0 +1,17 @@
+.welcome {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid #9EA2F2;
+  background-color: #C6C6F7;
+  border-radius: 20px;
+  box-shadow: 6px 6px #808080b5;
+  padding: 30px;
+  width: 70%;
+  .user-forms {
+    display: flex;
+    justify-content: center;
+  }
+
+}
