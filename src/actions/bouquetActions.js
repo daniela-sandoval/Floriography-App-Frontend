@@ -1,7 +1,7 @@
 export const makeInputBouquet = (userId, newBouquet) => {
   return dispatch => {
     dispatch({type: "CLEAR_ERROR"})
-    return fetch("http://localhost:3000/bouquets", {
+    return fetch("https://floriography-app-api.herokuapp.com/bouquets", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -27,7 +27,7 @@ export const makeInputBouquet = (userId, newBouquet) => {
 export const makeAdjBouquet = (adjs, userId, title) => {
   return dispatch => {
     dispatch({type: "LOADING_SCREEN"})
-    return fetch("http://localhost:3000/bouquet_adj", {
+    return fetch("https://floriography-app-api.herokuapp.com/bouquet_adj", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -51,7 +51,7 @@ export const makeAdjBouquet = (adjs, userId, title) => {
 export const makeRandomBouquet = userId => {
   return dispatch => {
     dispatch({type: "LOADING_SCREEN"})
-    return fetch("http://localhost:3000/rand_bouquets", {
+    return fetch("https://floriography-app-api.herokuapp.com/rand_bouquets", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -72,7 +72,7 @@ export const makeRandomBouquet = userId => {
 
 export const deleteBouquet = (bouquetId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/bouquets/${bouquetId}`, {
+    return fetch(`https://floriography-app-api.herokuapp.com/bouquets/${bouquetId}`, {
       method: "DELETE"
     })
     .then(dispatch({type: "UPDATE_BOUQUET", payload: bouquetId}))
@@ -81,7 +81,7 @@ export const deleteBouquet = (bouquetId) => {
 
 export const fetchAllBouquets = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/bouquets")
+    return fetch("https://floriography-app-api.herokuapp.com/bouquets")
     .then(resp => resp.json())
     .then(data => {
       if(data.length > 0) {

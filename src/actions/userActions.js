@@ -1,7 +1,7 @@
 export const userLoginFetch = userInfo => {
   return dispatch => {
     dispatch({type: "CLEAR_ERROR"})
-    return fetch("http://localhost:3000/login", {
+    return fetch("https://floriography-app-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const userLoginFetch = userInfo => {
 export const newUserFetch = userInfo => {
   return dispatch => {
     dispatch({type: "REGISTER_CLEAR_ERROR"})
-    return fetch("http://localhost:3000/signup", {
+    return fetch("https://floriography-app-api.herokuapp.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const newUserFetch = userInfo => {
 
 export const getProfile = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/profile", {
+    return fetch("https://floriography-app-api.herokuapp.com/profile", {
       headers: {
       "Authorization": localStorage.token
       }
@@ -72,7 +72,7 @@ export const logOutUser = () => {
 
 export const sendEmail = (userId, emailTo, bouquetId) => {
   return dispatch => {
-    return fetch("http://localhost:3000/send_email", {
+    return fetch("https://floriography-app-api.herokuapp.com/send_email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -89,7 +89,7 @@ export const sendEmail = (userId, emailTo, bouquetId) => {
 export const updateUserInfo = (newUsername, newEmail, id) => {
   debugger
   return dispatch => {
-    return fetch(`http://localhost:3000/users/${id}`, {
+    return fetch(`https://floriography-app-api.herokuapp.com/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -108,7 +108,7 @@ export const updateUserInfo = (newUsername, newEmail, id) => {
 
 export const deleteAccount = userId => {
   return dispatch => {
-    return fetch(`http://localhost:3000/users/${userId}`, {
+    return fetch(`https://floriography-app-api.herokuapp.com/users/${userId}`, {
       method: "DELETE"
     })
     .then( localStorage.clear(),

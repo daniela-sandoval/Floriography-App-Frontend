@@ -1,6 +1,6 @@
 export const fetchAdjs = () => {
   return dispatch => {
-    return  fetch("http://localhost:3000/adjectives")
+    return  fetch("https://floriography-app-api.herokuapp.com/adjectives")
     .then(resp => resp.json())
     .then(data => {
       dispatch({type:"SET_ADJS", payload: data})
@@ -28,7 +28,7 @@ export const clearList = () => {
 
 export const fetchTones = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/tones")
+    return fetch("https://floriography-app-api.herokuapp.com/tones")
     .then(resp => resp.json())
     .then(data => {
       dispatch({type: "SET_TONES", payload: data})

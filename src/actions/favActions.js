@@ -1,6 +1,6 @@
 export const makeFav = (userId, bouquetId) => {
   return dispatch => {
-    return fetch("http://localhost:3000/favorites", {
+    return fetch("https://floriography-app-api.herokuapp.com/favorites", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -20,7 +20,7 @@ export const makeFav = (userId, bouquetId) => {
 
 export const getFavorites = (userId) => {
   return dispatch => {
-    return fetch("http://localhost:3000/user_favorites", {
+    return fetch("https://floriography-app-api.herokuapp.com/user_favorites", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const getFavorites = (userId) => {
 export const deleteFav = (favId) => {
   debugger
   return dispatch => {
-    return fetch(`http://localhost:3000/favorites/${favId}`, {
+    return fetch(`https://floriography-app-api.herokuapp.com/favorites/${favId}`, {
       method: "DELETE"
     })
     .then(dispatch({type: "UPDATE_FAVS", payload: favId}))
