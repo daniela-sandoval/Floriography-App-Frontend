@@ -2,9 +2,9 @@ html, #root, body {
   height: 100%;
   min-height: 100vh;
   font-family: Trebuchet MS;
+  background-color: antiquewhite;
 }
 
 .flower-app {
   height: 100%;
-  /* filter: blur(4px) grayscale(3); */
 }

@@ -35,6 +35,7 @@ class BouquetContainer extends Component {
           <button className="profile-btns" style={this.state.user ? {color: "#3d407d"} : null} onClick={this.getUserBouquets}>YOUR BOUQUETS</button>
           <button className="profile-btns" style={this.state.favs ? {color: "#3d407d"} : null} onClick={this.handleClick}>YOUR FAVORITES</button>
         </div>
+        {this.props.bouquets.length === 0 ? <div id="no-bouquets">🌸You haven't made any bouquets 🌸</div> : null}
         {this.props.loading ? <Loading /> : null}
         {makeBouquets()}
       </div>

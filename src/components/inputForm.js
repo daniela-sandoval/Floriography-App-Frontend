@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeInputBouquet, turnOffLoading, turnOnLoading } from '../actions/bouquetActions'
+import { pulse } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import "../Stylesheets/inputForm.scss"
+
+const styles = {
+  pulse: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(pulse, 'pulse')
+  }
+}
 
 class inputForm extends Component {
   state = {
@@ -38,7 +47,8 @@ class inputForm extends Component {
 
   render() {
     return (
-    <div className="modal-input">
+    <StyleRoot>
+      <div className="modal-input" style={styles.pulse}>
         <div className="modal-content-input">
           <span id="close-input" className="input" onClick={this.handleClose}>&times;</span>
           <h4>pls type a sentence</h4>
@@ -53,7 +63,8 @@ class inputForm extends Component {
             <input id="submit-btn" type="submit" value="SUBMIT"/>
           </form>
         </div>
-    </div>
+      </div>
+    </StyleRoot>
     )
   }
 }

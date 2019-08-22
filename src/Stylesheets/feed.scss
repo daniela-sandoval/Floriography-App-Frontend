@@ -1,10 +1,25 @@
 .feed {
-  background-color: #dedede;
+  background-color: antiquewhite;
   padding: 2em;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  #hanging-flwr1, #hanging-flwr2{
+    zoom: 0.3;
+    top: 7%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  #hanging-flwr1 {
+    left: 5%;
+  }
+
+  #hanging-flwr2 {
+    right: 5%;
+  }
+
   h1 {
     margin: 0;
     padding-top: 40px;

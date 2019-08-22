@@ -72,7 +72,6 @@ export const logOutUser = () => {
 }
 
 export const sendEmail = (userId, emailTo, bouquetId) => {
-  debugger
   return dispatch => {
     return fetch("http://localhost:3000/send_email", {
       method: "POST",

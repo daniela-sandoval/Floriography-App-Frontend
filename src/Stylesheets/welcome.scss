@@ -1,9 +1,16 @@
 .wrapper {
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  #leave-banner {
+    zoom: 0.25;
+    position: absolute;
+    bottom: 0%;
+    margin: 0 auto;
+    z-index: 0;
+  }
   .welcome {
     text-align: center;
     display: flex;
@@ -11,9 +18,10 @@
     border: 3px solid #9EA2F2;
     background-color: #C6C6F7;
     border-radius: 20px;
-    box-shadow: 6px 6px #808080b5;
+    box-shadow: 6px 6px #888787;
     padding: 40px;
     width: 50%;
+    z-index: 1;
     h1 {
       margin: 0;
     }
@@ -28,6 +36,7 @@
         border-radius: 9px;
         border-style: none;
         width: 80%;
+        margin-bottom: 4%;
         &:focus {
           border-style: none;
         }
