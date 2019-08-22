@@ -29,7 +29,6 @@ class AdjForm extends Component {
     event.persist()
     if((this.props.adjList.length === 5) && !(this.state.title === "")) {
       this.props.makeAdjBouquet(this.props.adjList, this.props.userId, this.state.title)
-      debugger
       this.props.submitClick(event)
     } else {
       alert("pls add more adjectives or a title!")
