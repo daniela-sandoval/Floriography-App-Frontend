@@ -19,7 +19,7 @@ class Register extends Component {
   handleSubmit = async (event) => {
   event.preventDefault()
   await this.props.newUserFetch(this.state)
-  this.props.history.push("/flowerapp")
+  this.props.history.push("/flowerapp/profile")
 
 }
 

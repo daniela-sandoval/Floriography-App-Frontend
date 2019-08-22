@@ -5,7 +5,17 @@ import AdjForm from './adjForm'
 import BouquetContainer from './bouquetContainer'
 import { makeRandomBouquet } from "../actions/bouquetActions"
 import { getProfile, updateUserInfo, deleteAccount } from '../actions/userActions'
+import { shake } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import "../Stylesheets/profile.scss";
+import Poppies from "../Stylesheets/pics/hanging-flwr.png"
+
+const styles = {
+  shake: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(shake, 'shake')
+  }
+}
 
 class Profile extends Component {
   state = {
@@ -62,6 +72,7 @@ class Profile extends Component {
     return (
       <div className="Profile">
         <div className="SideBar">
+          <img id="poppies" src={ Poppies } alt="poppies"/>
           <div className="user-info">
             {this.state.editForm ?
             <div className="edit-user">
@@ -85,17 +96,20 @@ class Profile extends Component {
             </div>
             }
           </div>
-          <button id="adj-btn" className="adjective" onClick={this.handleClick}>ADJ BOUQUET</button><br/>
+          <p id="description" >Flowers carry different meanings.<br/>Try talking in their language!</p>
+          <button id="adj-btn" className="adjective" onClick={this.handleClick}>ADJECTIVE BOUQUET</button><br/>
           <button id="input-btn" className="input" onClick={this.handleClick}>INPUT BOUQUET</button><br/>
           <button id="random-btn"className="random" onClick={this.handleRandom}>RANDOM BOUQUET</button><br/>
           <br/>
           <br/>
           {this.state.deletePrompt ?
-            <div className="delete-prompt">
-              <p>Are you sure?</p>
-              <button onClick={this.actuallyDelete}>YES</button>
-              <button onClick={this.handleDelete}>NO</button>
-            </div>
+            <StyleRoot>
+              <div className="delete-prompt" style={styles.shake}>
+                <p>Are you sure?</p>
+                <button onClick={this.actuallyDelete}>YES</button>
+                <button onClick={this.handleDelete}>NO</button>
+              </div>
+            </StyleRoot>
             :
             <button id="delete-btn" onClick={this.handleDelete}>DELETE ACCOUNT ?</button>
           }

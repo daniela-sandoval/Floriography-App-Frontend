@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import FlowerCircle from './flowerCircle';
 import { deleteBouquet } from '../actions/bouquetActions';
 import { makeFav, deleteFav, getFavorites } from '../actions/favActions';
 import { sendEmail } from '../actions/userActions'
+import FlowerCircle from './flowerCircle';
 import EmailForm from './emailForm'
+import { fadeIn, shake } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import "../Stylesheets/bouquetDiv.scss";
+
+const styles = {
+  fadeIn: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(fadeIn, 'fadeIn')
+  },
+  shake: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(shake, 'shake')
+  }
+}
 
 class BouquetDiv extends Component {
   state = {
@@ -61,15 +74,15 @@ class BouquetDiv extends Component {
       return this.props.bouquet_flowers.map(flower => <FlowerCircle key={flower.id} {...flower}/>)
     }
     return (
-      <div className="bouquet">
+      <StyleRoot>
         {this.state.delete ?
-          <div className="prompt">
+          <div className="prompt" style={styles.shake}>
             <h3>Are you sure?</h3>
             <button onClick={this.deleteDiv}>Yes</button>
             <button onClick={this.buttonClick}>No</button>
           </div>
           :
-          <div className="bouquet-div">
+          <div className="bouquet-div" style={styles.fadeIn}>
             <span onClick={this.handleClick} className="close-div">&times;</span>
             <div className="header">{this.props.name}
               <p>made by: {this.props.username}</p>
@@ -95,7 +108,7 @@ class BouquetDiv extends Component {
           </div>
         }
         {this.state.emailModal ? <EmailForm onSubmit={this.toggleEmailForm} sendEmail={this.sendEmail}/> : null}
-      </div>
+      </StyleRoot>
     )
   }
 }

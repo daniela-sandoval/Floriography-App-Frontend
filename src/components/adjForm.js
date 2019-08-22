@@ -3,7 +3,16 @@ import { connect } from 'react-redux'
 import { makeAdjBouquet, turnOffLoading } from '../actions/bouquetActions'
 import { fetchAdjs, clearList } from '../actions/adjActions'
 import Adjective from './adjective'
+import { pulse } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import "../Stylesheets/adjForm.scss"
+
+const styles = {
+  pulse: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(pulse, 'pulse')
+  }
+}
 
 class AdjForm extends Component {
   state = {
@@ -45,22 +54,24 @@ class AdjForm extends Component {
       }
 
       return (
-        <div className="modal">
-            <div className="modal-content">
-              <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
-              <h4>pls choose 5 adjectives</h4>
-              <div className="adj-form-box">
-                <div className="title-bouquet">
-                  <label htmlFor="title">Title Your Bouquet: </label><br/>
-                  <input name="title" id="title" type="text" onChange={this.handleChange}/>
+        <StyleRoot>
+        <div className="modal" style={styles.pulse}>
+              <div className="modal-content">
+                <span id="close" className="adjective" onClick={this.handleClose}>&times;</span>
+                <h4>pls choose 5 adjectives</h4>
+                <div className="adj-form-box">
+                  <div className="title-bouquet">
+                    <label htmlFor="title">Title Your Bouquet: </label><br/>
+                    <input name="title" id="title" type="text" onChange={this.handleChange}/>
+                  </div>
+                  <div className="adj-con">
+                    {makeAdjs()}
+                  </div>
+                  <button id="submit-btn" className="adjective" onClick={this.handleClick}>SUBMIT</button>
                 </div>
-                <div className="adj-con">
-                  {makeAdjs()}
-                </div>
-                <button id="submit-btn" className="adjective" onClick={this.handleClick}>SUBMIT</button>
               </div>
-            </div>
         </div>
+      </StyleRoot>
       )
     } else {
       return null

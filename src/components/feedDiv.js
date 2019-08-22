@@ -4,7 +4,20 @@ import Moment from 'react-moment';
 import FlowerCircle from './flowerCircle'
 import { deleteBouquet, updateFeed } from '../actions/bouquetActions'
 import { makeFav, getFavorites, deleteFav } from '../actions/favActions'
+import { fadeIn, shake } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import "../Stylesheets/feedDiv.scss"
+
+const styles = {
+  fadeIn: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(fadeIn, 'fadeIn')
+  },
+  shake: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(shake, 'shake')
+  }
+}
 
 class FeedDiv extends Component {
   state = {
@@ -49,15 +62,15 @@ class FeedDiv extends Component {
       return this.props.bouquet_flowers.map(flower => <FlowerCircle key={flower.id} {...flower}/>)
     }
     return (
-      <div className="bouquet">
+      <StyleRoot>
         {this.state.delete ?
-          <div className="feed-prompt">
+          <div className="feed-prompt" style={styles.shake}>
             <h3>Are you sure?</h3>
             <button onClick={this.deleteDiv}>Yes</button>
             <button onClick={this.buttonClick}>No</button>
           </div>
           :
-          <div className="feed-div">
+          <div className="feed-div" style={styles.fadeIn}>
             {this.props.currentId === this.props.user.user_id ? <span onClick={this.handleClick} className="close-div">&times;</span> : null}
             <div className="header">{this.props.name}
               <p>made by: {this.props.user.user_name}</p>
@@ -79,7 +92,7 @@ class FeedDiv extends Component {
             </footer>
           </div>
         }
-      </div>
+      </StyleRoot>
     )
   }
 }

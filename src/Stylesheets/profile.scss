@@ -1,8 +1,11 @@
 .Profile {
   display: flex;
-  background: #dedede;
+  background: antiquewhite;
   height: 100%;
   padding-top: 3em;
+  .loading-scr {
+    font-size: 100px;
+  }
   .SideBar {
     flex: 1;
     margin: 20px;
@@ -16,6 +19,17 @@
     background-color: #C6C6F7;
     border-radius: 20px;
     box-shadow: 6px 6px #808080b5;
+    #description {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #poppies {
+      zoom: 0.1;
+      position: absolute;
+      top: -8%;
+      left: 1330vw;
+    }
     #adj-btn, #input-btn, #random-btn, #delete-btn, .pencil-icon, #submit-user-edit {
       border: 2px solid #e97878;
       border-radius: 5px;
@@ -33,6 +47,7 @@
     }
     .user-info {
       background-color: #e2e2f3;
+      box-shadow: 1px 1px 5px #635a5a;
       border-radius: 10px;
       padding: 15px;
       margin-bottom: 10px;
