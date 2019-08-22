@@ -17,8 +17,14 @@ class Login extends Component {
 
     handleSubmit = async (event) => {
     event.preventDefault()
-    await this.props.userLoginFetch(this.state)
-    this.props.history.push("/flowerapp/profile")
+    if(!(this.state.username === "") && !(this.state.email === "")) {
+      await this.props.userLoginFetch(this.state)
+      if (this.props.errorStatus === false) {
+        this.props.history.push("/flowerapp/profile")
+      }
+    } else {
+      alert("Please completely fill out the form!")
+    }
 
   }
 
@@ -28,6 +34,7 @@ class Login extends Component {
       <div className="login">
         <h1>LOGIN</h1>
         <form onSubmit={this.handleSubmit}>
+          {this.props.errorStatus ? <p>{this.props.errors}</p> : null}
           <label htmlFor="username">Username</label><br/>
           <input onChange={this.handleChange} name="username" id="username" type="text" placeholder="username"/><br/>
           <label htmlFor="password">Password</label><br/>
@@ -39,9 +46,15 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errorStatus: state.userReducer.errorStatus,
+    errors: state.userReducer.error
+  }
+}
 
 const mapDispatchToProps = {
   userLoginFetch: userLoginFetch
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

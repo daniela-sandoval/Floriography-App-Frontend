@@ -18,8 +18,14 @@ class Register extends Component {
 
   handleSubmit = async (event) => {
   event.preventDefault()
-  await this.props.newUserFetch(this.state)
-  this.props.history.push("/flowerapp/profile")
+  if(!(this.state.username === "") && !(this.state.password === "") && !(this.state.email === "")) {
+    await this.props.newUserFetch(this.state)
+    if(this.props.errorStatus === false) {
+      this.props.history.push("/flowerapp/profile")
+    }
+  } else {
+    alert("Please fill out the entire form!")
+  }
 
 }
 
@@ -28,6 +34,7 @@ class Register extends Component {
       <div className="register">
         <h1>REGISTER</h1>
         <form onSubmit={this.handleSubmit}>
+          {this.props.errorStatus ? <p>{this.props.errors}</p> : null}
           <label htmlFor="reg_username">Username</label><br/>
           <input onChange={this.handleChange} name="username" id="reg_8username" type="text" placeholder="username" value={this.state.username}/><br/>
           <label htmlFor="reg_password">Password</label><br/>
@@ -41,8 +48,15 @@ class Register extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errorStatus: state.userReducer.registerErrorStatus,
+    errors: state.userReducer.registerError
+  }
+}
+
 const mapDispatchToProps = {
   newUserFetch: newUserFetch
 }
 
-export default connect(null, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

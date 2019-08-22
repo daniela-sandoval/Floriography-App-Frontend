@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import plant from "../Stylesheets/green-plant.svg"
-// import ReactSVG from 'react-svg'
 import { connect } from 'react-redux'
 import { turnOffLoading, addNewToBouquet } from '../actions/bouquetActions'
 import { flash } from 'react-animations';

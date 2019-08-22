@@ -1,48 +1,47 @@
 export const userLoginFetch = userInfo => {
-
   return dispatch => {
-    return (
-      fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(userInfo)
-      })
-      .then(resp => resp.json())
-      .then(data => {
-        if(data.token) {
-          localStorage.token = data.token
-          dispatch({type: "LOGIN_USER", payload: data})
-        }
-      })
-    )
+    dispatch({type: "CLEAR_ERROR"})
+    return fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      if(data.token) {
+        localStorage.token = data.token
+        dispatch({type: "LOGIN_USER", payload: data})
+      } else {
+        dispatch({type: "ERROR", payload: data.errors})
+      }
+    })
   }
-
 }
 
 export const newUserFetch = userInfo => {
   return dispatch => {
-    return (
-      fetch("http://localhost:3000/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(userInfo)
-      })
-      .then(resp => resp.json())
-      .then(data => {
-        if(data.token) {
-          localStorage.token = data.token
-          dispatch({type: "LOGIN_USER", payload: data})
-        }
-      })
-    )
+    dispatch({type: "REGISTER_CLEAR_ERROR"})
+    return fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      if(data.token) {
+        localStorage.token = data.token
+        dispatch({type: "LOGIN_USER", payload: data})
+      } else {
+        dispatch({type: "REGISTER_ERROR", payload: data.errors})
+      }
+    })
   }
-
 }
 
 export const getProfile = () => {

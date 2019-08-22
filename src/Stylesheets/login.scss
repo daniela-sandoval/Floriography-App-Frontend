@@ -2,11 +2,14 @@
   margin-right: 15px;
   zoom: 1.1;
   form {
+    position: relative;
     background-color: #e2e2f3;
     box-shadow: 1px 1px 5px #635a5a;
-    padding: 35px;
     border-radius: 10px;
-    height: 176px;
+    p {
+      color: red;
+      font-size: 10px;
+    }
     #login-btn {
       zoom: 1.4;
       border: 2px solid #9ea2f2;
@@ -16,7 +19,10 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 3px 3px #615858;
-      margin-top: 45%;
+      margin: 0 auto;
+      bottom: 8px;
+      position: absolute;
+      left: 9px;
       &:hover {
         color: #9a5454;
       }
