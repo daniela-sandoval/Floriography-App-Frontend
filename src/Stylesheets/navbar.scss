@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   justify-content: space-evenly;
-  padding: 1em;
+  padding: 13px;
   background-color: #c6c6f7;
   border-bottom: 2px solid #3d407d;
   box-shadow: 2px 5px #afafaf;
@@ -12,6 +12,8 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-family: "Gaegu";
+    font-size: 20px;
     &:hover {
       color: #3d407d;
     }

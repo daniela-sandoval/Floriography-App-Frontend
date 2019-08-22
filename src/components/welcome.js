@@ -26,7 +26,7 @@ export default class Welcome extends Component {
       <div className="wrapper">
         <img id="leave-banner" src={BannerLeaves} alt="leaf banner" style={styles.fadeIn}/>
           <div className="welcome" style={styles.pulse}>
-            <h1>Flwr App</h1>
+            <h1 id="title">Floriography</h1>
             <div className="user-forms">
               <Login {...this.props}/>
               <Register {...this.props}/>

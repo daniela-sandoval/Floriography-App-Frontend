@@ -22,10 +22,19 @@
     box-shadow: 6px 6px #888787;
     padding: 40px;
     width: 50%;
-    height: 55%;
+    height: 60%;
     z-index: 1;
     h1 {
       margin: 0;
+      font-family: "Gaegu";
+    }
+    #title {
+      font-size: 80px;
+      font-family: "Gaegu";
+      color: #40a99f;
+      font-weight: bold;
+      margin: 0;
+      text-shadow: 3px 2px 2px grey;
     }
     .user-forms {
       display: flex;

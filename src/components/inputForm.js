@@ -32,12 +32,16 @@ class inputForm extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
     event.persist()
-    await this.props.makeInputBouquet(this.props.userId, this.state)
-    if(this.props.errorStatus) {
-      this.setState({errorStat: this.props.errorStatus, sentence: ""})
+    if(!(this.state.title === "") && !(this.state.sentence === "")) {
+      await this.props.makeInputBouquet(this.props.userId, this.state)
+      if(this.props.errorStatus) {
+        this.setState({errorStat: this.props.errorStatus, sentence: ""})
+      } else {
+        this.props.submitClick(event)
+        this.props.turnOnLoading()
+      }
     } else {
-      this.props.submitClick(event)
-      this.props.turnOnLoading()
+      alert("Please fill out all fields...")
     }
   }
 

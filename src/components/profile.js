@@ -91,7 +91,7 @@ class Profile extends Component {
               <button onClick={this.handleEdit} className="pencil-icon">
                 <i className="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <h1>{this.props.username}</h1>
+              <h1 id="name">{this.props.username}</h1>
               <p>User Email: {this.props.email}</p>
             </div>
             }
