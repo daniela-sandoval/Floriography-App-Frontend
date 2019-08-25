@@ -87,7 +87,6 @@ export const sendEmail = (userId, emailTo, bouquetId) => {
 }
 
 export const updateUserInfo = (newUsername, newEmail, id) => {
-  debugger
   return dispatch => {
     return fetch(`https://floriography-app-api.herokuapp.com/users/${id}`, {
       method: "PATCH",
