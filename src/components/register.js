@@ -21,7 +21,7 @@ class Register extends Component {
   if(!(this.state.username === "") && !(this.state.password === "") && !(this.state.email === "")) {
     await this.props.newUserFetch(this.state)
     if(this.props.errorStatus === false) {
-      this.props.history.push("/flowerapp/profile")
+      this.props.history.push("/profile")
     }
   } else {
     alert("Please fill out the entire form!")

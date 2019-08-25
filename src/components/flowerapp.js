@@ -19,9 +19,9 @@ class FlowerApp extends Component {
       <div className="flower-app">
         <Navbar/>
         <Switch>
-          <Route path="/flowerapp/profile" component={ Profile }/>
-          <Route path="/flowerapp/feed" component={ Feed }/>
-          <Route path="/flowerapp/garden" component={ Garden }/>
+          <Route path="/profile" component={ Profile }/>
+          <Route path="/feed" component={ Feed }/>
+          <Route path="/garden" component={ Garden }/>
         </Switch>
       </div>
     )

@@ -20,7 +20,7 @@ class Login extends Component {
     if(!(this.state.username === "") && !(this.state.email === "")) {
       await this.props.userLoginFetch(this.state)
       if (this.props.errorStatus === false) {
-        this.props.history.push("/flowerapp/profile")
+        this.props.history.push("/profile")
       }
     } else {
       alert("Please completely fill out the form!")

@@ -9,15 +9,17 @@ class App extends React.Component {
 
   componentDidMount() {
     if(localStorage.token) {
-    this.props.history.push("/flowerapp/profile")
+      this.props.history.push("/profile")
+    } else {
+      this.props.history.push("/welcome")
     }
   }
 
   render() {
     return (
       <Switch>
-        <Route path='/welcome' component={ Welcome }/>} />
-        <Route path='/flowerapp' component={ FlowerApp } />
+        <Route exact path='/welcome' component={ Welcome }/>} />
+        <Route path='/' component={ FlowerApp } />
       </Switch>
     )
   }
