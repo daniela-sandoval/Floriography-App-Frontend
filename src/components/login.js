@@ -21,6 +21,7 @@ class Login extends Component {
       await this.props.userLoginFetch(this.state)
       if (this.props.errorStatus === false) {
         this.props.history.push("/profile")
+        this.setState({username: "", password: ""})
       }
     } else {
       alert("Please completely fill out the form!")

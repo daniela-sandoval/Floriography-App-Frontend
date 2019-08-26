@@ -22,6 +22,7 @@ class Register extends Component {
     await this.props.newUserFetch(this.state)
     if(this.props.errorStatus === false) {
       this.props.history.push("/profile")
+      this.setState({username: "", password: "", email: ""})
     }
   } else {
     alert("Please fill out the entire form!")
