@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://i.imgur.com/LqpvzOn.png">
 
-## Available Scripts
+# Module 5 Final: 🌸 Floriography Application 🌸
 
-In the project directory, you can run:
+Floriography is an app that allows users to create boquets based on the language of flowers. Florigraphy's frontend is structured to emulate a social media platform where users can create, delete, and favorite bouquets. User's can create bouquets based 5 adjectives as well as write their own input. Requests are sent to Florigraphy's API and bouquets are picked based on a user's specific requests. This app encourages users to constantly explore the meanings of different flowers by hovering over each flower to uncover their name and meaning. Florigraphy also allows it's user's to send their bouquets to another peron's email. 
 
-### `npm start`
+This is a JavaScript application made with Redux and React. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Install Florigraphy Application.
+1. Use your terminal to navigate into the place where you want to clone Florigraphy's directory and `git clone` the url.
+2. In terminal run `npm install` in order to install the necessary packages found in the `package.json` file needed to run this frontend.
+3. Make sure you run `rails s` for the backend server (assuming you've installed Florigraphy API: https://github.com/daniela-sandoval/Floriography-App-Backend) and then run `npm start`.
+4. This should open up your browser to Florigraphy's welcome page!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## How to Use Florigraphy
+Floriography constantly talks to and makes fetch requests to Florigraphy's API and allows users to:
+* Create, delete, and read bouquets based on adjectives, user input, and random options.
+* Bouquets can also be created with user input by contacting the third party API Watson Tone Analyzer in the backend.
+* User's can also email a bouquet to another user by using Florigraphy API's ActionMailer. 
+* Experience webpages that have a floral theme and posts boxes that contain their bouquets.
+* Users can also create, read, update, and delete their account through their profile.
+* See what other users have made through the feed tab.
+* Explore all the flowers in Florigraphy's database by hovering over each one as well as filtering through different tones.
 
-### `npm test`
+## Developer
+* Daniela Sandoval
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## More About Our App
+Floriography uses packages such as React, Redux, Moment.js, IBM Watson Tone Analyzer, Sass, Radium, React Animations, and Thunk. This app is also made with pure CSS!
 
-### `npm run build`
+You can find the live version at: http://floriography.herokuapp.com
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### License
+This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.
