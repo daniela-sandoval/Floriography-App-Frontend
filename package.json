@@ -5,7 +5,7 @@
   "dependencies": {
     "@ibm-watson/tone-analyzer-nodejs": "^1.1.1",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "radium": "^0.25.2",
     "react": "^16.8.6",
     "react-animations": "^1.0.0",
