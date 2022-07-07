@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@ibm-watson/tone-analyzer-nodejs": "^1.1.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.12.0",
     "radium": "^0.25.2",
     "react": "^16.8.6",
